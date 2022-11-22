@@ -1,0 +1,12 @@
+.admin-login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    > .box {
+        h1 {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+
+<fieldset>
+	{{ form_label(form.username) }}
+	{{ form_widget(form.username) }}
+	{{ form_errors(form.username) }}
+</fieldset>
+
+<fieldset>
+	{{ form_label(form.password) }}
+	{{ form_widget(form.password) }}
+	{{ form_errors(form.password) }}
+</fieldset>
+
+<button type="submit">Se connecter</button>
+
+{{ form_end(form) }}
