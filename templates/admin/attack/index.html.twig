@@ -1,0 +1,43 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Attack index{% endblock %}
+
+{% block admin_body %}
+    <h1>Attack index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Avatar</th>
+                <th>Cost</th>
+                <th>Gain</th>
+                <th>SuccessRate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for attack in attacks %}
+            <tr>
+                <td>{{ attack.id }}</td>
+                <td>{{ attack.name }}</td>
+                <td>{{ attack.avatar }}</td>
+                <td>{{ attack.cost }}</td>
+                <td>{{ attack.gain }}</td>
+                <td>{{ attack.successRate }}</td>
+                <td>
+                    <a href="{{ path('app_admin_attack_show', {'id': attack.id}) }}">show</a>
+                    <a href="{{ path('app_admin_attack_edit', {'id': attack.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_attack_new') }}">Create new</a>
+{% endblock %}

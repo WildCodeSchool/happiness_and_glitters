@@ -26,4 +26,10 @@ class AdminController extends AbstractController
     public function logout(): void
     {
     }
+
+    #[Route('/', name: 'index', methods: ['GET', 'POST'])]
+    public function index(): Response
+    {
+        return $this->render('admin/index.html.twig');
+    }
 }
