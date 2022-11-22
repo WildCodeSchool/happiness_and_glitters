@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css2?family=Mali&display=swap);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+html {
+    height: 100%;
+}
+
+body {
+    color: #f76c6c;
+    background: linear-gradient(43.68deg,
+            rgba(89, 144, 25, 0.18) 2.2%,
+            rgba(157, 132, 0, 0.26595) 10.86%,
+            rgba(176, 124, 42, 0.237109) 21.05%,
+            rgba(193, 116, 79, 0.242665) 30.21%,
+            rgba(206, 111, 109, 0.246987) 37.35%,
+            rgba(230, 100, 163, 0.255) 50.57%,
+            rgba(211, 112, 191, 0.3) 55.67%,
+            rgba(184, 126, 214, 0.345) 66.89%,
+            rgba(149, 139, 229, 0.335) 74.53%,
+            rgba(136, 142, 226, 0.335359) 81.15%,
+            rgba(124, 144, 221, 0.37934) 86.76%,
+            rgba(114, 146, 216, 0.5) 94.91%,
+            rgba(107, 147, 209, 0.5) 100%);
+    background-attachment: fixed;
+    margin: 0;
+
+    padding: 0;
+    min-height: 100%;
+    position: relative;
+}
+
+:root {
+    --primary-color: rgba(219, 100, 100, 1);
+    --secondary-color: white;
+    --third-color: #facfcf;
+    --fourth-color: black;
+    --primary-hover: rgb(218, 78, 78);
+    --grey-background: #474e5d;
+    --grey-hover: #2e2f32;
+    --filter-shadow: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.45));
+    --shadow: rgba(0, 0, 0, 0.06);
+    --shadow-buttons: 0px 2px 3px 0px rgba(0, 0, 0, 0.20);
+    --primary-font: "Mali", sans-serif;
+    --secondary-font: "Roboto";
+}
+
+main {
+    min-height: 100%;
+    padding-bottom: 10vh;
+}
+
+.redButton {
+    font-size: 20px;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    background: linear-gradient(to bottom,
+            var(--primary-color) 5%,
+            var(--primary-hover) 100%);
+    padding: 15px 30px;
+    margin: 0;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    filter: var(--filter-shadow);
+}
+
+.redButton:hover {
+    background: linear-gradient(to bottom,
+            var(--primary-hover) 5%,
+            var(--primary-color) 100%);
+}
+
+.loginButton {
+    font-size: 16px;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    background: linear-gradient(to bottom,
+            var(--primary-color) 5%,
+            var(--primary-hover) 100%);
+    padding: 10px 15px;
+    margin: 0;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    filter: var(--filter-shadow);
+}
+
+.loginButton:hover {
+    background: linear-gradient(to bottom,
+            var(--primary-hover) 5%,
+            var(--primary-color) 100%);
+}
+
+.cancelButton {
+    font-size: 20px;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    background: linear-gradient(to bottom,
+            var(--grey-background) 5%,
+            var(--grey-hover) 100%);
+    padding: 15px 30px;
+    margin: 0;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    filter: var(--filter-shadow);
+}
+
+.cancelButton:hover {
+    background: linear-gradient(to bottom,
+            var(--grey-hover) 5%,
+            var(--grey-background) 100%);
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    color: var(--primary-color);
+}
