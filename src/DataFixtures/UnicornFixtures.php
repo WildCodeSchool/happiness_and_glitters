@@ -29,7 +29,7 @@ class UnicornFixtures extends Fixture implements DependentFixtureInterface
             $attacksRefs = range(0, 14);
             shuffle($attacksRefs);
             for ($j = 0; $j < 3; $j++) {
-                $unicorn->addAttack($this->getReference('attack_' . $attacksRefs[$i]));
+                $unicorn->addAttack($this->getReference('attack_' . $attacksRefs[$j]));
             }
 
             $manager->persist($unicorn);

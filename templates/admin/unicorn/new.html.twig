@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Unicorn{% endblock %}
+
+{% block body %}
+    <h1>Create new Unicorn</h1>
+
+    {{ include('unicorn/_form.html.twig') }}
+
+    <a href="{{ path('app_unicorn_index') }}">back to list</a>
+{% endblock %}
