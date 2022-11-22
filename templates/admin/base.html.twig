@@ -1,6 +1,10 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {% include "admin/_header.html.twig" %}
-    {% block admin_body %}{% endblock %}
+	<div class="admin-container">
+		{% include "admin/_header.html.twig" %}
+		<main>
+			{% block admin_body %}{% endblock %}
+		</main>
+	</div>
 {% endblock %}

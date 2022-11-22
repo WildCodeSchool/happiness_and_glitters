@@ -1,20 +1,22 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Attack index{% endblock %}
+{% block title %}Attaques{% endblock %}
 
 {% block admin_body %}
-    <h1>Attack index</h1>
+    <h1>Attaques</h1>
+
+    <a href="{{ path('app_admin_attack_new') }}">Créer une attaque</a>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th>ID</th>
+                <th>Nom</th>
                 <th>Avatar</th>
-                <th>Cost</th>
+                <th>Coût</th>
                 <th>Gain</th>
-                <th>SuccessRate</th>
-                <th>actions</th>
+                <th>Ratio de victoire</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +29,8 @@
                 <td>{{ attack.gain }}</td>
                 <td>{{ attack.successRate }}</td>
                 <td>
-                    <a href="{{ path('app_admin_attack_show', {'id': attack.id}) }}">show</a>
-                    <a href="{{ path('app_admin_attack_edit', {'id': attack.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_attack_show', {'id': attack.id}) }}">Infos</a>
+                    <a href="{{ path('app_admin_attack_edit', {'id': attack.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +41,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_attack_new') }}">Create new</a>
 {% endblock %}

@@ -1,14 +1,16 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}
+{{ user.firstname ~ " " ~ user.lastname }}
+{% endblock %}
 
 {% block admin_body %}
-    <h1>User</h1>
+    <h1>{{ user.firstname ~ " " ~ user.lastname }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
@@ -16,15 +18,15 @@
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>Prénom</th>
                 <td>{{ user.firstname }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Nom</th>
                 <td>{{ user.lastname }}</td>
             </tr>
             <tr>
-                <th>Nickname</th>
+                <th>Surnom</th>
                 <td>{{ user.nickname }}</td>
             </tr>
             <tr>
@@ -42,9 +44,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_user_index') }}">back to list</a>
+    <a href="{{ path('app_admin_user_index') }}">Retour</a>
 
-    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
+    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
 
     {{ include('admin/user/_delete_form.html.twig') }}
 {% endblock %}

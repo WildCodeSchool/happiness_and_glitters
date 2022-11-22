@@ -1,4 +1,39 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div>
+    {{ form_label(form.name, "Nom") }}
+	{{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div>
+    {{ form_label(form.avatar, "Avatar") }}
+	{{ form_widget(form.avatar) }}
+    {{ form_errors(form.avatar) }}
+</div>
+
+<div>
+    {{ form_label(form.cost, "Coût") }}
+	{{ form_widget(form.cost) }}
+    {{ form_errors(form.cost) }}
+</div>
+
+<div>
+    {{ form_label(form.gain, "Gain") }}
+	{{ form_widget(form.gain) }}
+    {{ form_errors(form.gain) }}
+</div>
+
+<div>
+    {{ form_label(form.successRate, "Ratio de victoire") }}
+	{{ form_widget(form.successRate) }}
+    {{ form_errors(form.successRate) }}
+</div>
+
+<div>
+    {{ form_label(form.unicorns, "Licorne") }}
+	{{ form_widget(form.unicorns) }}
+    {{ form_errors(form.unicorns) }}
+</div>
+
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

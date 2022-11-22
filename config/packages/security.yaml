@@ -28,6 +28,7 @@ security:
             form_login:
                 login_path: "app_admin_login"
                 check_path: "app_admin_login"
+                default_target_path: "app_admin_index"
                 username_parameter: "admin_login[username]"
                 password_parameter: "admin_login[password]"
         main:

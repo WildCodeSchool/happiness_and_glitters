@@ -1,18 +1,20 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Unicorn{% endblock %}
+{% block title %}
+    {{ unicorn.name }}
+{% endblock %}
 
 {% block admin_body %}
-    <h1>Unicorn</h1>
+    <h1>{{ unicorn.name }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <td>{{ unicorn.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ unicorn.name }}</td>
             </tr>
             <tr>
@@ -24,27 +26,27 @@
                 <td>{{ unicorn.score }}</td>
             </tr>
             <tr>
-                <th>Fights</th>
+                <th>Combats</th>
                 <td>{{ unicorn.fights }}</td>
             </tr>
             <tr>
-                <th>WonFights</th>
+                <th>Victoire</th>
                 <td>{{ unicorn.wonFights }}</td>
             </tr>
             <tr>
-                <th>LostFights</th>
+                <th>Défaites</th>
                 <td>{{ unicorn.lostFights }}</td>
             </tr>
             <tr>
-                <th>KoFights</th>
+                <th>KO</th>
                 <td>{{ unicorn.koFights }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_unicorn_index') }}">back to list</a>
+    <a href="{{ path('app_admin_unicorn_index') }}">Retour</a>
 
-    <a href="{{ path('app_admin_unicorn_edit', {'id': unicorn.id}) }}">edit</a>
+    <a href="{{ path('app_admin_unicorn_edit', {'id': unicorn.id}) }}">Editer</a>
 
     {{ include('admin/unicorn/_delete_form.html.twig') }}
 {% endblock %}

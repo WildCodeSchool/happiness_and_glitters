@@ -1,47 +1,49 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Unicorn index{% endblock %}
+{% block title %}
+    Licornes
+{% endblock %}
 
 {% block admin_body %}
-    <h1>Unicorn index</h1>
+	<h1>Licornes</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Avatar</th>
-                <th>Score</th>
-                <th>Fights</th>
-                <th>WonFights</th>
-                <th>LostFights</th>
-                <th>KoFights</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for unicorn in unicorns %}
-            <tr>
-                <td>{{ unicorn.id }}</td>
-                <td>{{ unicorn.name }}</td>
-                <td>{{ unicorn.avatar }}</td>
-                <td>{{ unicorn.score }}</td>
-                <td>{{ unicorn.fights }}</td>
-                <td>{{ unicorn.wonFights }}</td>
-                <td>{{ unicorn.lostFights }}</td>
-                <td>{{ unicorn.koFights }}</td>
-                <td>
-                    <a href="{{ path('app_admin_unicorn_show', {'id': unicorn.id}) }}">show</a>
-                    <a href="{{ path('app_admin_unicorn_edit', {'id': unicorn.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<a href="{{ path('app_admin_unicorn_new') }}">Créer une licorne</a>
 
-    <a href="{{ path('app_admin_unicorn_new') }}">Create new</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Avatar</th>
+				<th>Score</th>
+				<th>Combats</th>
+				<th>Victoires</th>
+				<th>Défaites</th>
+				<th>KO</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for unicorn in unicorns %}
+				<tr>
+					<td>{{ unicorn.id }}</td>
+					<td>{{ unicorn.name }}</td>
+					<td>{{ unicorn.avatar }}</td>
+					<td>{{ unicorn.score }}</td>
+					<td>{{ unicorn.fights }}</td>
+					<td>{{ unicorn.wonFights }}</td>
+					<td>{{ unicorn.lostFights }}</td>
+					<td>{{ unicorn.koFights }}</td>
+					<td>
+						<a href="{{ path('app_admin_unicorn_show', {'id': unicorn.id}) }}">Infos</a>
+						<a href="{{ path('app_admin_unicorn_edit', {'id': unicorn.id}) }}">Editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9">Aucune licornes</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}
