@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RGPD -
+	{{parent()}}
+{% endblock %}
+
+{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/rgpd.css">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<div class="container">
+			<h1>RGPD</h1>
+			<p>Les informations recueillies lors de l'inscription sont enregistrées dans un fichier informatisé par la yellowgreen team pour des raisons marketing. La base légale du traitement est le consentement au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques.</p>
+			<p>
+				Les données collectées seront communiquées aux seuls destinataires suivants : la yellowgreen team.
+			</p>
+
+			<p>Les données sont conservées pendant une durée de 30 jours.</p>
+
+			<p>Vous pouvez accéder aux données vous concernant, les rectifier, demander leur effacement ou exercer votre droit à la limitation du traitement de vos données. Vous pouvez retirer à tout moment votre consentement au traitement de vos données. Vous pouvez également vous opposer au traitement de vos données. Vous pouvez également exercer votre droit à la portabilité de vos données.</p>
+
+			<p>Consultez le site
+				<a href="https://www.cnil.fr/">cnil.fr</a>
+				pour plus d’informations sur vos droits.</p>
+
+			<p>Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce dispositif, vous pouvez contacter notre délégué à la protection des données ou le service chargé de l’exercice de ces droits à l'adresse mail suivante : yellowgreenteam@gmail.com.
+			</p>
+
+			<p>Si vous estimez, après nous avoir contactés, que vos droits « Informatique et Libertés » ne sont pas respectés, vous pouvez toujours adresser une réclamation à la CNIL.
+			</p>
+		</div>
+	</main>
+{% endblock %}
+{% block javascript %}
+	{{parent()}}
+{% endblock %}
