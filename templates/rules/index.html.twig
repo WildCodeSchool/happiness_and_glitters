@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RulesController!
+{% endblock %}
+
+{% block body %}
+<style>
+	.example-wrapper {
+		margin: 1em auto;
+		max-width: 800px;
+		width: 95%;
+		font: 18px / 1.5 sans-serif;
+	}
+	.example-wrapper code {
+		background: #F5F5F5;
+		padding: 2px 6px;
+	}
+</style>
+
+<div class="example-wrapper">
+	<h1>Hello
+		{{ rules }}! ✅</h1>
+
+	This friendly message is coming from:
+	<ul>
+		<li>Your controller at
+			<code>
+				<a href="{{ '/home/wilder/HappinessAndGlitters/happiness_and_glitters/src/Controller/RulesController.php'|file_link(0) }}">src/Controller/RulesController.php</a>
+			</code>
+		</li>
+		<li>Your template at
+			<code>
+				<a href="{{ '/home/wilder/HappinessAndGlitters/happiness_and_glitters/templates/rules/index.html.twig'|file_link(0) }}">templates/rules/index.html.twig</a>
+			</code>
+		</li>
+	</ul>
+</div>
+<!-- ENDBLOCK MOVED JUST TO CLOSE COMMENTS, DOWN BELOW -->
+
+<!-- Template given ^^^^^^^^^^^^^^^ -->
+<!-- Imported from yellowgreen to sort v v v v v -->{# {% extends 'layout.html.twig' %}
+	{% block title %}
+	Règles du jeu -
+{{parent()}}
+{% endblock %}
+
+	{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/rules.css"> <link rel="stylesheet" type="text/css" href="/assets/css/userForm.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/login.css">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<h1 class="rule-title">Bienvenue
+			{{ sessionUser.nickName }}
+			dans Happiness & Glitters</h1>
+		<h2 class="rule-title">Comment jouer ? (et peut-être gagner)</h2>
+		<ul class="rules">
+			<li class="rule">
+				<div class="rule-paragraphs">
+					<p>
+						Happiness & Glitters est un jeu hautement compétitif, basé sur des affrontements de gentillesse entre des licornes toutes mignonnes.
+					</p>
+					<p>
+						Un affrontement se déroule au tour par tour et est découpé en plusieurs rounds.
+					</p>
+				</div>
+				<div class="rule-image">
+					<img src="/assets/images/unicornVS.png" alt="" class="unicornVS">
+				</div>
+			</li>
+			<li class="rule">
+				<div class="blink-paragraph" id="blink">
+					<p>Clique sur la licorne !</p>
+				</div>
+				<div class="rule-image unicorn-show" id="card-flip">
+					<img src="/assets/images/unicorn-card.png" alt="" class="unicorn-card">
+				</div>
+				<div class="rule-paragraphs" id="paragraphs-flip">
+					<p>
+						Au début de l’affrontement, tu vas devoir sélectionner UNE SEULE LICORNE qui t’accompagnera tout au long de la partie.
+					</p>
+					<p>
+						Chaque licorne est unique et possède plusieurs capacités dont les caractéristiques diffèrent.
+					</p>
+				</div>
+			</li>
+			<li class="rule">
+				<div class="rule-paragraphs">
+					<p>
+						Au début de l’affrontement, ton adversaire et toi avez 100 POINTS DE GENTILLESSE (PG) chacun.
+					</p>
+					<p>
+						Le total de PG évolue en cours de partie en fonction des capacités lancées par les licornes trop mignonnes !
+					</p>
+					<p>
+						Chaque capacité a un coût de PG, un gain de PG et une chance de toucher différents.
+					</p>
+				</div>
+				<div class="rule-image">
+					<img src="/assets/images/unicorn-walking.png" alt="" class="unicorn-walking">
+				</div>
+			</li>
+			<li class="rule">
+				<div class="rule-paragraphs endgame">
+					<p>Deux moyens de terminer la partie :</p>
+
+					<p>1. Le premier joueur à atteindre 200 PG gagne la partie !
+					</p>
+
+					<p>2. Le joueur qui tombe à 0 PG perd la partie !</p>
+				</div>
+			</li>
+		</ul>
+
+		{% if sessionUser %}
+			<div class="rule-button">
+				<a href="/fight" class="redButton">Combat</a>
+			</div>
+		{% else %}
+			<div class="rule-button">
+				<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
+			</div>
+
+			<div id="modalOne" class="modal {{ errors|length > 0 ? 'displayed' : '' }}">
+				<div class="modal-content">
+					<a class="close">&times;</a>
+					{% include 'User/_addUserForm.html.twig' %}
+				</div>
+			</div>
+
+			<div class="rule-button">
+				<button class="redButton" id="login-button" data-modal="modalTwo">J'ai déja un compte</button>
+			</div>
+
+			<div id="modalTwo" class="modal">
+				<div class="modal-content">
+					<a class="close">&times;</a>
+					{% include 'User/_login.html.twig' %}
+				</div>
+			</div>
+		{% endif %}
+
+
+	</main>
+{% endblock %}
+
+{% block javascript %}
+	{{parent()}}
+	<script type="application/javascript" src="/assets/js/formModale.js"></script>
+	<script type="application/javascript" src="/assets/js/profilePic.js"></script>
+	<script src="/assets/js/card-flip.js"></script>
+{% endblock %}
+#}{% endblock %}
