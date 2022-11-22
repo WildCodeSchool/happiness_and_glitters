@@ -21,7 +21,7 @@ security:
             security: false
         admin:
             lazy: true
-            pattern: ^/admin/
+            pattern: ^/admin
             provider: app_admin_provider
             logout:
                 path: app_admin_logout

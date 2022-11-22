@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}New Unicorn{% endblock %}
 
-{% block body %}
+{% block admin_body %}
     <h1>Create new Unicorn</h1>
 
-    {{ include('unicorn/_form.html.twig') }}
+    {{ include('admin/unicorn/_form.html.twig') }}
 
-    <a href="{{ path('app_unicorn_index') }}">back to list</a>
+    <a href="{{ path('app_admin_unicorn_index') }}">back to list</a>
 {% endblock %}
