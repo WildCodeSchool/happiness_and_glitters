@@ -9,18 +9,8 @@
 			{% endblock %}
 		</title>
 
-		<!-- <link rel="stylesheet" type="text/css" href="/assets/css/style.css"> -->
-
-
-		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
-			<!--
-																				<link rel="stylesheet" type="text/css" href="/assets/css/header.css">
-			
-																		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-			
-																		<link rel="stylesheet" type="text/css" href="/assets/css/footer.css"> -->
 
 		{% endblock %}
 
@@ -29,21 +19,19 @@
 		{% endblock %}
 	</head>
 	<body>
-		{#
-				<!--
-								{% block header %}
-									{% include 'Components/_header.html.twig' %}
-								{% endblock %}
-		
-								{% block navbar %}{% endblock %}
-								{% block content %}{% endblock %}
-		
-								{% block footer %}
-									{% include '/Components/_footer.html.twig' %}
-								{% endblock %}
-		
-								{% block javascript %}
-									<script src="/assets/js/header.js"></script>
-								{% endblock %} -->#}
+		{% block header %}
+			{% include 'components/_header.html.twig' %}
+		{% endblock %}
+
+		{% block navbar %}{% endblock %}
+		{% block content %}{% endblock %}
+
+		{% block footer %}
+			{% include 'components/_footer.html.twig' %}
+		{% endblock %}
+
+		{% block javascript %}
+			<script src="/assets/js/header.js"></script>
+		{% endblock %}
 	</body>
 </html>

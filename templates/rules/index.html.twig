@@ -1,59 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RulesController!
-{% endblock %}
-
-{% block body %}
-<style>
-	.example-wrapper {
-		margin: 1em auto;
-		max-width: 800px;
-		width: 95%;
-		font: 18px / 1.5 sans-serif;
-	}
-	.example-wrapper code {
-		background: #F5F5F5;
-		padding: 2px 6px;
-	}
-</style>
-
-<div class="example-wrapper">
-	<h1>Hello
-		{{ rules }}! ✅</h1>
-
-	This friendly message is coming from:
-	<ul>
-		<li>Your controller at
-			<code>
-				<a href="{{ '/home/wilder/HappinessAndGlitters/happiness_and_glitters/src/Controller/RulesController.php'|file_link(0) }}">src/Controller/RulesController.php</a>
-			</code>
-		</li>
-		<li>Your template at
-			<code>
-				<a href="{{ '/home/wilder/HappinessAndGlitters/happiness_and_glitters/templates/rules/index.html.twig'|file_link(0) }}">templates/rules/index.html.twig</a>
-			</code>
-		</li>
-	</ul>
-</div>
-<!-- ENDBLOCK MOVED JUST TO CLOSE COMMENTS, DOWN BELOW -->
-
-<!-- Template given ^^^^^^^^^^^^^^^ -->
-<!-- Imported from yellowgreen to sort v v v v v -->{# {% extends 'layout.html.twig' %}
-	{% block title %}
-	Règles du jeu -
-{{parent()}}
-{% endblock %}
-
-	{% block stylesheet %}
+{% block title %}Règles du jeu -
 	{{parent()}}
-	<link rel="stylesheet" href="/assets/css/rules.css"> <link rel="stylesheet" type="text/css" href="/assets/css/userForm.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 {% endblock %}
 
 {% block content %}
 	<main>
-		<h1 class="rule-title">Bienvenue
-			{{ sessionUser.nickName }}
+		<h1 class="rule-title">
+			Bienvenue
+			{#{{ sessionUser.nickName }}#}
 			dans Happiness & Glitters</h1>
 		<h2 class="rule-title">Comment jouer ? (et peut-être gagner)</h2>
 		<ul class="rules">
@@ -67,7 +22,7 @@
 					</p>
 				</div>
 				<div class="rule-image">
-					<img src="/assets/images/unicornVS.png" alt="" class="unicornVS">
+					<img src="{{ asset('build/images/unicornVS.png') }}" alt="" class="unicornVS">
 				</div>
 			</li>
 			<li class="rule">
@@ -75,7 +30,7 @@
 					<p>Clique sur la licorne !</p>
 				</div>
 				<div class="rule-image unicorn-show" id="card-flip">
-					<img src="/assets/images/unicorn-card.png" alt="" class="unicorn-card">
+					<img src="{{ asset('build/images/unicorn-card.png') }}" alt="" class="unicorn-card">
 				</div>
 				<div class="rule-paragraphs" id="paragraphs-flip">
 					<p>
@@ -99,7 +54,7 @@
 					</p>
 				</div>
 				<div class="rule-image">
-					<img src="/assets/images/unicorn-walking.png" alt="" class="unicorn-walking">
+					<img src="{{ asset('build/images/unicorn-walking.png') }}" alt="" class="unicorn-walking">
 				</div>
 			</li>
 			<li class="rule">
@@ -114,19 +69,19 @@
 			</li>
 		</ul>
 
-		{% if sessionUser %}
-			<div class="rule-button">
-				<a href="/fight" class="redButton">Combat</a>
-			</div>
-		{% else %}
-			<div class="rule-button">
-				<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
-			</div>
+		{#{% if sessionUser %}
+										<div class="rule-button">
+											<a href="/fight" class="redButton">Combat</a>
+										</div>
+									{% else %}
+										</div>#}
+		<div class="rule-button">
+			<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
 
-			<div id="modalOne" class="modal {{ errors|length > 0 ? 'displayed' : '' }}">
+			<div id="modalOne" class="modal {#{{ errors|length > 0 ? 'displayed' : '' }}">#}
 				<div class="modal-content">
 					<a class="close">&times;</a>
-					{% include 'User/_addUserForm.html.twig' %}
+					{#{% include 'User/_addUserForm.html.twig' %}#}
 				</div>
 			</div>
 
@@ -137,19 +92,18 @@
 			<div id="modalTwo" class="modal">
 				<div class="modal-content">
 					<a class="close">&times;</a>
-					{% include 'User/_login.html.twig' %}
+					{#{% include 'User/_login.html.twig' %}#}
 				</div>
 			</div>
-		{% endif %}
+			{#{% endif %}#}
+		</main>
+
+	{% endblock %}
 
 
-	</main>
-{% endblock %}
-
-{% block javascript %}
-	{{parent()}}
-	<script type="application/javascript" src="/assets/js/formModale.js"></script>
-	<script type="application/javascript" src="/assets/js/profilePic.js"></script>
-	<script src="/assets/js/card-flip.js"></script>
-{% endblock %}
-#}{% endblock %}
+	{% block javascript %}
+		{{parent()}}
+		<script type="application/javascript" src="/assets/js/formModale.js"></script>
+		<script type="application/javascript" src="/assets/js/profilePic.js"></script>
+		<script src="/assets/js/card-flip.js"></script>
+	{% endblock %}

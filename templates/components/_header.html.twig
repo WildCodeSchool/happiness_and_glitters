@@ -1,0 +1,29 @@
+<header class="topHeader">
+	<a href="/">
+		<img class="unicornLogo" src="{{ asset('build/images/logo4.png') }}">
+	</a>
+
+	<a class="headerLinks headerTitle" href="/">Happiness & Glitters
+	</a>
+
+	{#{% if sessionUser %}
+								<a href={{sessionUser ? "/users/show?id=" ~ sessionUser.id : "#"}}><img class='imgavatar' alt={{sessionUser.nickName}} src={{"/assets/images/profile/" ~ sessionUser.avatar }}></a>
+							{% endif %} #}
+
+
+	<button type="button" class="icon{#{{sessionUser ? '':' notconnected' }}#}" onclick="displayMenu()" id="burger">
+
+		<i class="fa-solid fa-bars"></i>
+	</button>
+
+</header>
+
+<aside class=" topnav responsivenav{#{{sessionUser ? '':' notconnected' }}" #}id="mytopnav">
+	<ul>
+		<li><a class="headerLinks radiusButton" href="/rules">Règles</a></li>
+		<li><a class="headerLinks radiusButton"href={#{{sessionUser ? "/users/show?id=" ~ sessionUser.id : "#"}} #}>Mon profil</a></li>
+		<li><a class="headerLinks radiusButton" href="/users">Classement</a></li>
+		<li><a class="headerLinks radiusButton" href="/fight">Combat</a></li>
+		<li><a class="headerLinks radiusButton" href="/logout">Logout</a></li>
+	</ul>
+</aside>
