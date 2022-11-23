@@ -25,16 +25,16 @@ class Unicorn
     private ?int $score = null;
 
     #[ORM\Column(nullable: true, options: ["default" => 0])]
-    private ?int $fights = null;
+    private ?int $fights = 0;
 
     #[ORM\Column(nullable: true, options: ["default" => 0])]
-    private ?int $wonFights = null;
+    private ?int $wonFights = 0;
 
     #[ORM\Column(nullable: true, options: ["default" => 0])]
-    private ?int $lostFights = null;
+    private ?int $lostFights = 0;
 
     #[ORM\Column(nullable: true, options: ["default" => 0])]
-    private ?int $koFights = null;
+    private ?int $koFights = 0;
 
     #[ORM\ManyToMany(targetEntity: Attack::class, mappedBy: 'unicorns')]
     private Collection $attacks;
