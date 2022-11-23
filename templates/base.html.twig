@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
-        <title>
-            {% block title %}Projet 3 Name{% endblock %}
-        </title>
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
+		<title>
+			{% block title %}Happiness and Glitters
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		{% block header %}
+			{% include 'components/_header.html.twig' %}
+			{% include 'component/_header.html.twig' %}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block navbar %}{% endblock %}
+		{% block content %}{% endblock %}
+
+		{% block footer %}
+			{% include 'components/_footer.html.twig' %}
+			{% include 'component/_footer.html.twig' %}
+		{% endblock %}
+
+		{% block javascript %}
+			<script src="/assets/js/header.js"></script>
+		{% endblock %}
+	</body>
 </html>

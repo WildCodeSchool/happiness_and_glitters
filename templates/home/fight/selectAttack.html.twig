@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FightPage -
+	{{parent()}}
+{% endblock %}
+
+{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" type="text/css" href="/assets/css/battle.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/css/versus.css"/>
+{% endblock %}
+
+{% block content %}
+	<main class="fight">
+
+		<section class="battle">
+			<div>
+				<img class="player" src="/assets/images/profile/{{sessionUser ? sessionUser.avatar : 'img_avatar.png'}}">
+				<h3>Score
+					{{userScore}}</h3>
+			</div>
+			<img class="versus" src="/assets/images/vs-index.png">
+
+			<div>
+				<img class="player" src="/assets/images/profile/{{opponentUser ? opponentUser.avatar : 'img_avatar.png'}}">
+				<h3>Score
+					{{opponentScore}}</h3>
+			</div>
+		</section>
+
+		<section class="round">
+			<h1>
+				Round
+				{{round}}
+			</h1>
+		</section>
+
+		<div class="tableau">
+			<section class="name">
+				{{unicorn[0].unicornName}}
+			</section>
+
+			<div class="containerTableau">
+				<section class="avatarCapacity"><img src="/assets/images/unicorn/{{type == 'user' ? userUnicorn.avatar : opponentUnicorn.avatar}}">
+				</section>
+				<section>
+
+					<div class="titleTableau">
+						capacités</div>
+
+					<div class="capacity">
+
+						<div>Nom</div>
+						<div>Côut</div>
+						<div>Gain</div>
+						<div>Chance</div>
+
+					</div>
+
+					<div>
+						{% for attack in attacks %}
+							<ol>
+								<li>
+									{{attack.attName}}
+								</li>
+								<li>
+									{{attack.attCost}}
+								</li>
+								<li>
+									{{attack.attGain}}
+								</li>
+								<li>
+									{{attack.attSuccessRate}}
+								</li>
+							</ol>
+						{%  endfor %}
+					</div>
+				</section>
+			</div>
+
+		</div>
+
+		<section class="round">
+			<h2>
+				utilise l'une des capacités de ta licorne !</h2>
+		</section>
+
+		<section class="containerRedButton">
+			{% for attack in attacks %}
+				<div>
+					<a href="confirmAttack?id={{attack.attId}}" class="selectAttack">{{attack.attName}}
+					</a>
+				</div>
+			{%  endfor %}
+		</section>
+
+	</main>
+{% endblock %}

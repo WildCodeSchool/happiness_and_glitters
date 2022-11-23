@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sélectionne ta licorne -
+	{{parent()}}
+{% endblock %}
+
+{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/unicorn.css">
+	<link rel="stylesheet" href="/assets/css/versus.css">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<h1 class="unicorn-title">
+			Sélectionne ta licorne,
+			{{ sessionUser.nickName }}
+		</h1>
+		<h2 class="unicorn-title">N'oublie pas que tu ne peux choisir qu'une seule licorne, alors réfléchis bien !</h2>
+		{% include 'Components/_versus.html.twig' %}
+		<ul class="unicorns">
+			{% set currentUnicorn = -1 %}
+			{% for uni in unicorns %}
+				{% if uni.unicornId is not same as(currentUnicorn)  %}
+					{% set currentUnicorn = uni.unicornId %}
+					<li class="unicorn" id="{{ uni.unicornId }}">
+						<div class="unicorn-name">
+							<h3>{{uni.unicornName}}</h3>
+						</div>
+						<div class="unicorn-image">
+							<img src="/assets/images/unicorn/{{uni.unicornName|lower }}.png" alt="">
+						</div>
+						<div class="unicorn-skills">
+							<h4>Capacités</h4>
+						</div>
+						<div class="unicorn-table">
+							<table>
+								<tr>
+									<th>Nom</th>
+									<th>Coût</th>
+									<th>Gain</th>
+									<th>Chance</th>
+								</tr>
+								{% for uni in unicorns %}
+									{% if uni.unicornId is same as(currentUnicorn) %}
+										<tr>
+											<td>{{ uni.attName }}</td>
+											<td>{{ uni.attCost }}</td>
+											<td>{{ uni.attGain }}</td>
+											<td>{{ uni.attSuccessRate }}%</td>
+										</tr>
+									{% endif %}
+								{% endfor %}
+							</table>
+						</div>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+		<div>
+			<form class="selectUnicornForm" method="post" action="/select-unicorn/select?id={{ post.selectedUnicorn }}">
+				<select class="select-hidden" name="userUnicorn" id="userUnicorn" required>
+					<option hidden disabled selected value></option>
+					{% set currentUnicorn = -1 %}
+					{{dump(unicorns)}}
+
+					{% for uni in unicorns %}
+						{% if uni.unicornId is not same as(currentUnicorn)  %}
+							{% set currentUnicorn = uni.unicornId %}
+							<option value="{{uni.unicornId}}">{{uni.unicornName}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+				<select class="select-hidden" name="opponentUnicorn" id="opponentUnicorn" required>
+					<option hidden disabled selected value></option>
+					{% set currentUnicorn = -1 %}
+					{% for uni in unicorns %}
+						{% if uni.unicornId is not same as(currentUnicorn)  %}
+							{% set currentUnicorn = uni.unicornId %}
+							<option value="{{uni.unicornId}}">{{uni.unicornName}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+				<button class="redButton" type="submit">J'ai choisi ma licorne !</button>
+			</form>
+		</div>
+	</main>
+{% endblock %}
+{% block javascript %}
+	{{parent()}}<script type="application/javascript" src="/assets/js/profilePic.js"></script>
+	<script src="/assets/js/select-unicorn.js"></script>
+{% endblock %}
