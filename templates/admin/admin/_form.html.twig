@@ -1,4 +1,9 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {attr: {class: 'admin-form'}}) }}
+<div>
+	{{ form_row(form.username, {label: 'Nom'}) }}
+</div>
+<div>
+	{{ form_row(form.password, {label: 'Mot de passe'}) }}
+</div>
+<button class="btn">{{ button_label|default('Sauvegrader') }}</button>
 {{ form_end(form) }}

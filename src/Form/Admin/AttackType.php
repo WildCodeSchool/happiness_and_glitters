@@ -24,9 +24,9 @@ class AttackType extends AbstractType
             ->add('successRate')
             ->add('unicorns', EntityType::class, [
                 "class" => Unicorn::class,
+                "choice_label" => "name",
                 "multiple" => true,
-                "expanded" => true,
-                "choice_label" => "name"
+                "expanded" => true
             ])
         ;
     }

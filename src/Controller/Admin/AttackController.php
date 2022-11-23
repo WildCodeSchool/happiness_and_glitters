@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Attack;
 use App\Form\Admin\AttackType;
 use App\Repository\AttackRepository;
+use App\Repository\UnicornRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +23,11 @@ class AttackController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AttackRepository $attackRepository): Response
-    {
+    public function new(
+        Request $request,
+        AttackRepository $attackRepository,
+        UnicornRepository $unicornRepository
+    ): Response {
         $attack = new Attack();
         $form = $this->createForm(AttackType::class, $attack);
         $form->handleRequest($request);
@@ -37,6 +41,7 @@ class AttackController extends AbstractController
         return $this->renderForm('admin/attack/new.html.twig', [
             'attack' => $attack,
             'form' => $form,
+            'unicorns' => $unicornRepository->findAll()
         ]);
     }
 
@@ -49,8 +54,12 @@ class AttackController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Attack $attack, AttackRepository $attackRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Attack $attack,
+        AttackRepository $attackRepository,
+        UnicornRepository $unicornRepository
+    ): Response {
         $form = $this->createForm(AttackType::class, $attack);
         $form->handleRequest($request);
 
@@ -63,6 +72,7 @@ class AttackController extends AbstractController
         return $this->renderForm('admin/attack/edit.html.twig', [
             'attack' => $attack,
             'form' => $form,
+            'unicorns' => $unicornRepository->findAll()
         ]);
     }
 

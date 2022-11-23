@@ -1,4 +1,58 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {attr: {class: 'admin-form'}}) }}
+<div>
+	{{ form_label(form.name, "Nom") }}
+	{{ form_widget(form.name) }}
+	{{ form_errors(form.name) }}
+</div>
+
+<div>
+	{{ form_label(form.avatar, "Avatar") }}
+	{{ form_widget(form.avatar) }}
+	{{ form_errors(form.avatar) }}
+</div>
+
+<div>
+	{{ form_label(form.score, "Score") }}
+	{{ form_widget(form.score) }}
+	{{ form_errors(form.score) }}
+</div>
+
+<div>
+	{{ form_label(form.fights, "Combats") }}
+	{{ form_widget(form.fights) }}
+	{{ form_errors(form.fights) }}
+</div>
+
+<div>
+	{{ form_label(form.wonFights, "Victoires") }}
+	{{ form_widget(form.wonFights) }}
+	{{ form_errors(form.wonFights) }}
+</div>
+
+<div>
+	{{ form_label(form.lostFights, "Defaites") }}
+	{{ form_widget(form.lostFights) }}
+	{{ form_errors(form.lostFights) }}
+</div>
+
+<div>
+	{{ form_label(form.koFights, "KO") }}
+	{{ form_widget(form.koFights) }}
+	{{ form_errors(form.koFights) }}
+</div>
+
+<div>
+	{{ form_label(form.attacks, "Attaques") }}
+	<div class="checkboxes-field">
+		{% for attack in attacks %}
+			<div>
+				{{ form_widget(form.attacks[attack.id]) }}
+				{{ form_label(form.attacks[attack.id]) }}
+			</div>
+		{% endfor %}
+	</div>
+	{{ form_errors(form.attacks) }}
+</div>
+
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}
