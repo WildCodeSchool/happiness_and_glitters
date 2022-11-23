@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin/attack', name: "app_admin_attack_")]
 class AttackController extends AbstractController
@@ -26,16 +27,19 @@ class AttackController extends AbstractController
     public function new(
         Request $request,
         AttackRepository $attackRepository,
-        UnicornRepository $unicornRepository
+        UnicornRepository $unicornRepository,
+        ValidatorInterface $validator
     ): Response {
         $attack = new Attack();
         $form = $this->createForm(AttackType::class, $attack);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $attackRepository->save($attack, true);
-
-            return $this->redirectToRoute('app_admin_attack_index', [], Response::HTTP_SEE_OTHER);
+        if ($form->isSubmitted()) {
+            $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
+            if (count($validator->validate($attack)) < 1) {
+                $attackRepository->save($attack, true);
+                return $this->redirectToRoute('app_admin_attack_index', [], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->renderForm('admin/attack/new.html.twig', [
@@ -58,15 +62,18 @@ class AttackController extends AbstractController
         Request $request,
         Attack $attack,
         AttackRepository $attackRepository,
-        UnicornRepository $unicornRepository
+        UnicornRepository $unicornRepository,
+        ValidatorInterface $validator
     ): Response {
         $form = $this->createForm(AttackType::class, $attack);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $attackRepository->save($attack, true);
-
-            return $this->redirectToRoute('app_admin_attack_index', [], Response::HTTP_SEE_OTHER);
+            $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
+            if (count($validator->validate($attack)) < 1) {
+                $attackRepository->save($attack, true);
+                return $this->redirectToRoute('app_admin_attack_index', [], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->renderForm('admin/attack/edit.html.twig', [

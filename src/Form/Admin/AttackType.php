@@ -21,7 +21,6 @@ class AttackType extends AbstractType
             ])
             ->add('cost')
             ->add('gain')
-            ->add('successRate')
             ->add('unicorns', EntityType::class, [
                 "class" => Unicorn::class,
                 "choice_label" => "name",
