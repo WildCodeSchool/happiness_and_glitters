@@ -7,23 +7,23 @@
 {% block body %}
 <main class="homePages">
   <section>
-    <img class="imgMedium" src="/assets/images/unicorn-index.png">
+    <img  src="{{ asset('build/images/unicorn-index.png') }}"  class="imgMedium" >
     <h1>Bienvenue dans Happiness & Glitters</h1>
   </section>
   <section>
     <p> Ici tu vas pouvoir mettre à l'épreuve ta licorne et défier celle de ton adversaire !</p>
 
     <div class="versus">
-      <img src="/assets/images/unicorn-left.png">
-      <img class="imgSmall" src="/assets/images/vs-index.png">
-      <img src="/assets/images/unicorn-right.png">
+      <img src="{{ asset('build/images/unicorn-left.png') }}">
+      <img src="{{ asset('build/images/vs-index.png') }}">
+      <img src="{{ asset('build/images/unicorn-right.png') }}">
     </div>
 
     <p>Le but du jeu ? Envoyer le plus de bisous, de hugs et d'arc-en-ciel possible
     </br>pour gagner des points et sortir vainqueur de ce combat d'amour! </p>
   </section>
   <section class="bottomSection">
-    <img class="imgMedium" src="/assets/images/dab-unicorn.png">
+    <img src="{{ asset('build/images/dab-unicorn.png') }}" class="imgMedium" >
 	  <a href="/rules" class="redButton">Voir Règles! </a>
   </section>
 
