@@ -1,16 +1,16 @@
-{{ form_start(form) }}
+{{ form_start(form, {attr: {class: 'admin-form'}}) }}
 
-<fieldset>
-	{{ form_label(form.username) }}
+<div>
+	{{ form_label(form.username, 'Nom') }}
 	{{ form_widget(form.username) }}
 	{{ form_errors(form.username) }}
-</fieldset>
+</div>
 
-<fieldset>
-	{{ form_label(form.password) }}
+<div>
+	{{ form_label(form.password, 'Mot de passe') }}
 	{{ form_widget(form.password) }}
 	{{ form_errors(form.password) }}
-</fieldset>
+</div>
 
 <button type="submit">Se connecter</button>
 

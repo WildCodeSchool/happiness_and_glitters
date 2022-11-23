@@ -1,0 +1,16 @@
+.admin-login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 4rem - 2px);
+
+    > .box {
+        border: solid $adminBorderColor 1px;
+        border-radius: $adminBorderRadius;
+        padding: 2rem;
+
+        h1 {
+            text-align: center;
+        }
+    }
+}

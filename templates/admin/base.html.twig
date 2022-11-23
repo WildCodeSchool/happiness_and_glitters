@@ -1,7 +1,13 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+	{{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
 {% block body %}
-	{% include "admin/_header.html.twig" %}
+	{% block admin_header %}
+		{% include "admin/_header.html.twig" %}
+	{% endblock %}
 	<main class="admin-container">
 		{% block admin_body %}{% endblock %}
 	</main>

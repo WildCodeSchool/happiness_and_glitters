@@ -1,0 +1,51 @@
+.admin-form {
+    input,
+    textarea,
+    label {
+        margin: 0.25rem 0;
+    }
+
+    label {
+        display: block;
+    }
+
+    input {
+        display: block;
+        border: solid transparent 1px;
+        border-bottom: solid black 1px;
+        padding: 0.25rem;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+            border: $adminBorderColor solid 1px;
+            border-bottom: black solid 1px;
+        }
+    }
+
+    textarea {
+        border: solid black 1px;
+        height: 10rem;
+        padding: 0.25rem;
+        width: 100%;
+    }
+
+    .checkboxes-field {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 0.5rem;
+
+        div {
+            border: solid $adminBorderColor 1px;
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+
+            input,
+            label {
+                display: inline;
+                width: initial;
+            }
+        }
+    }
+}

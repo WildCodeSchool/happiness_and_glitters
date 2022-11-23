@@ -1,0 +1,30 @@
+.admin-container {
+    border: solid $adminBorderColor 1px;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    overflow: auto;
+    padding: 1rem;
+
+    a,
+    button {
+        background-color: white;
+        border: solid $adminBorderColor 1px;
+        border-radius: $adminBorderRadius;
+        color: black;
+        display: inline-block;
+        font-size: 12pt;
+        margin: 0.25rem;
+        padding: 0.25rem;
+        text-decoration: 0;
+        transition: $adminButtonsTransition;
+
+        &:hover {
+            background-color: $adminBorderColor;
+            cursor: pointer;
+        }
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+}

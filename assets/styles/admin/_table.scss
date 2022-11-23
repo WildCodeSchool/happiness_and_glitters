@@ -1,0 +1,10 @@
+.admin-table {
+    border: solid $adminBorderColor 1px;
+    border-collapse: collapse;
+
+    th,
+    td {
+        border: solid $adminBorderColor 1px;
+        padding: 0.25rem;
+    }
+}
