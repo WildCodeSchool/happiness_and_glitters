@@ -1,0 +1,36 @@
+{% block content %}
+	<section class="formSection">
+		<h2>Inscris-toi</h2>
+
+		<div class="show-errors">
+			{% for err in errors %}
+				<p>{{ err }}</p>
+			{% endfor %}
+		</div>
+		<div class="imageHolder" id="imageHolder">
+			<img src="\assets\images\profile\img_avatar.png" alt="Avatar" class="userPic" id="avatar-src">
+		</div>
+
+		<form method="post" enctype="multipart/form-data" action="/users/add">
+
+			<input type="text" value="" name="firstName" id="firstName" placeholder="Prénom" pattern="[A-Za-z]{1-45}" required>
+
+			<input type="text" value="" name="lastName" id="lastName" placeholder="Nom" pattern="[A-Za-z]{1-45}" required>
+
+			<input type="text" value="" name="nickName" id="nickName" placeholder="Pseudo" pattern="[A-Za-z0-9]{1-45}" required>
+
+			<input type="text" value="" name="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+			<input type="password" value="" name="passWord" id="password" placeholder="Password" pattern=".{8,}" required>
+
+			<input id="avatar" name="avatar" type="file" accept="image/*" value="{{ user.avatar }}" onchange="showPreview(event);">
+
+			<textarea rows="4" name="description" id="description" placeholder="Description"/></textarea>
+
+		<div class="imageHolder">
+			<button class="redButton" type="submit">Je démarre l’aventure !</button>
+		</div>
+
+	</form>
+</section>
+<br>{% endblock %}

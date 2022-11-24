@@ -1,0 +1,247 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+.chooseOpponentButton {
+    font-size: 13px;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    background: linear-gradient(to bottom,
+            var(--primary-color) 5%,
+            var(--primary-hover) 100%);
+    padding: 4px 8px;
+    margin: 0;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    filter: var(--filter-shadow);
+}
+
+.chooseOpponentButton:hover {
+    background: linear-gradient(to bottom,
+            var(--primary-hover) 5%,
+            var(--primary-color) 100%);
+}
+.picture_avatar{
+    border-radius: 50%;
+}
+
+.vs_pic{
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.fightButtonOn{
+    pointer-events: auto;
+}
+
+
+main .choose_fighter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary-font);
+    font-weight: bold;
+    flex-direction: column;
+    background-color: var(--third-color);
+    width: 60%;
+    border-radius: 15px;
+}
+
+td{
+    padding:30px;
+}
+
+.array_fighters{
+    padding:30px;
+}
+
+.goFight{
+    margin-top: 30px;
+    justify-content: center;
+    font-size: 15px;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 15px 30px;
+    margin-bottom: 20px;;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 0px 10px 8px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
+}
+    
+
+.title_array{
+    background-color: var(--third-color);
+}
+
+.choose_fighter h1{
+    font-size: 15px;
+}
+
+main table th,
+main table td {
+    border: lightgrey 1px solid;
+}
+
+main td img {
+    width: 6.5vw;
+    height: 6.5vw;
+}
+
+main table tr:nth-child(even) {
+    background-color: Lightgrey;
+}
+
+main table {
+    font-size: 3vw;
+    color: var(--primary-color);
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    margin-top: 5vw;
+    border: lightgrey 1px solid;
+    max-width: 800px;
+    border-radius: 10px;
+    border-collapse: collapse;
+    font-family: var(--secondary-font);
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+table{
+    width: 100px;
+}
+
+h1 {
+    font-size: 8vw;
+}
+
+.left-justify {
+    text-align: left;
+}
+
+.right-justify {
+    text-align: right;
+}
+
+section.info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.info-session {
+    color: var(--primary-color);
+    font-size: 3vw;
+    background-color: var(--third-color);
+    padding: 2vw;
+    border-radius: 2vw;
+    border: 0.3vw solid;
+    border-color: whitesmoke;
+}
+
+.podium {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 60vw;
+    height: 40vw;
+    font-size: 2vw;
+    max-width: 600px;
+}
+.rank img {
+    width: 9vw;
+    height: 9vw;
+}
+
+.rank div img {
+    width: 7vw;
+    height: 7vw;
+}
+.rank {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sectionVS{
+    padding-top: 30px;
+}
+
+.sectionVS img{
+    width:50px;
+    height:50px;
+}
+
+@media screen and (min-width: 768px){
+    main .choose_fighter{
+        width:40%;
+    }
+
+    .choose_fighter p{
+        font-size: 20px;
+    }
+
+    .sectionVS{
+        text-align: center;
+    }
+
+    .sectionVS img{
+        width:60px;
+        height:60px;
+    }
+
+    .main button.goFight{
+        width:30%;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    main .choose_fighter{
+        width:50%;
+    }
+
+    .choose_fighter p{
+        font-size: 25px;
+    }
+
+    .sectionVS{
+        text-align: center;
+    }
+
+    .sectionVS img{
+        width:100px;
+        height:100px;
+    }
+
+    main button.goFight{
+        width:100%;
+        font-size: 25px;
+    }
+
+    main table{
+        font-size:2vw;
+    }
+
+    .sectionVS img{
+        width: 120px;
+        height:120px;
+    }
+
+    .choose_fighter h1{
+        font-size: 25px;
+    }
+
+    
+}

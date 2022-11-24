@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/assets/images/favicon.png">
+		<title>
+			{% block title %}H&G
+			{% endblock %}
+		</title>
+
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+		{% block stylesheet %}
+			<link rel="stylesheet" type="text/css" href="/assets/css/header.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+			<link rel="stylesheet" type="text/css" href="/assets/css/footer.css">
+		{% endblock %}
+	</head>
+
+
+	<body>
+		{% block header %}
+			{% include 'Components/_header.html.twig' %}
+		{% endblock %}
+
+		{% block navbar %}{% endblock %}
+		{% block content %}{% endblock %}
+
+		{% block footer %}
+			{% include '/Components/_footer.html.twig' %}
+		{% endblock %}
+
+		{% block javascript %}
+			<script src="/assets/js/header.js"></script>
+		{% endblock %}
+
+	</body>
+</html></head></html>
