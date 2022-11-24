@@ -10,10 +10,6 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
-        app_admin_provider:
-            entity:
-                class: App\Entity\Admin
-                property: username
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
@@ -22,15 +18,15 @@ security:
         admin:
             lazy: true
             pattern: ^/admin
-            provider: app_admin_provider
+            provider: app_user_provider
             logout:
                 path: app_admin_logout
             form_login:
                 login_path: "app_admin_login"
                 check_path: "app_admin_login"
                 default_target_path: "app_admin_index"
-                username_parameter: "admin_login[username]"
-                password_parameter: "admin_login[password]"
+                username_parameter: "user_login[email]"
+                password_parameter: "user_login[password]"
         main:
             lazy: true
             provider: app_user_provider
@@ -44,7 +40,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/admin(?!/login), roles: ROLE_ADMIN }
+        - { path: ^/admin(?!(/login|/signup|/logout)), roles: ROLE_ADMIN }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

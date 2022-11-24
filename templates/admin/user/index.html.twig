@@ -1,45 +1,51 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Utilisateurs{% endblock %}
+{% block title %}Utilisateurs
+{% endblock %}
 
 {% block admin_body %}
-    <h1>Utilisateurs</h1>
+	<h1>Utilisateurs</h1>
 
-    <table class="admin-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Surnom</th>
-                <th>Avatar</th>
-                <th>Description</th>
-                <th>Score</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.nickname }}</td>
-                <td>{{ user.avatar }}</td>
-                <td>{{ user.description }}</td>
-                <td>{{ user.score }}</td>
-                <td>
-                    <a href="{{ path('app_admin_user_show', {'id': user.id}) }}">Infos</a>
-                    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">Aucun utilisateur</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="admin-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+				<th>Prénom</th>
+				<th>Nom</th>
+				<th>Surnom</th>
+				<th>Avatar</th>
+				<th>Description</th>
+				<th>Score</th>
+				<th>Roles</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.firstname }}</td>
+					<td>{{ user.lastname }}</td>
+					<td>{{ user.nickname }}</td>
+					<td>{{ user.avatar }}</td>
+					<td>{{ user.description }}</td>
+					<td>{{ user.score }}</td>
+					<td>{{ user.roles|json_encode(constant('JSON_PRETTY_PRINT')) }}</td>
+					<td>
+						<a href="{{ path('app_admin_user_show', {'id': user.id}) }}">Infos</a>
+						<a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
+						{% if app.user.id != user.id %}
+							<a href="{{ path('app_admin_user_toggle_admin', {'id': user.id}) }}">Admin On/Off</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="11">Aucun utilisateur</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}
