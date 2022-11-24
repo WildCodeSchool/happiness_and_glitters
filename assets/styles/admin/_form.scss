@@ -1,4 +1,8 @@
 .admin-form {
+    div {
+        width: 100%;
+    }
+
     input,
     textarea,
     label {
@@ -11,6 +15,7 @@
 
     input {
         display: block;
+        background-color: white;
         border: solid transparent 1px;
         border-bottom: solid black 1px;
         padding: 0.25rem;
@@ -45,11 +50,13 @@
         flex-flow: row wrap;
         justify-content: center;
         gap: 0.5rem;
+        margin: 0.25rem;
 
         div {
             border: solid $adminBorderColor 1px;
             border-radius: 0.25rem;
             padding: 0.25rem;
+            width: initial;
 
             input,
             label {

@@ -1,6 +1,8 @@
 .admin-container {
     border: solid $adminBorderColor 1px;
     border-radius: 0.5rem;
+    color: black;
+    display: block;
     height: calc(100vh - 5rem);
     margin: 1rem;
     overflow: auto;
@@ -13,6 +15,7 @@
         border-radius: $adminBorderRadius;
         color: black;
         display: inline-block;
+        font-family: var(--primary-font);
         font-size: 12pt;
         margin: 0.25rem;
         padding: 0.25rem;
@@ -26,6 +29,11 @@
     }
 
     h1 {
+        font-size: 3vw;
         margin-bottom: 1rem;
+    }
+
+    form {
+        display: block;
     }
 }

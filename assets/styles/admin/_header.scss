@@ -11,9 +11,11 @@
             height: 100%;
 
             a {
+                background-color: white;
                 border: solid $adminBorderColor 1px;
                 border-radius: $adminBorderRadius;
                 color: black;
+                font-family: var(--primary-font);
                 text-decoration: none;
                 margin: 0 0.5rem;
                 padding: 0.5rem;
