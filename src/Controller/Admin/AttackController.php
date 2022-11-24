@@ -35,7 +35,10 @@ class AttackController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
+            if ($attack->getCost() > 0 && $attack->getGain() > 0) {
+                $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
+            }
+
             if (count($validator->validate($attack)) < 1) {
                 $attackRepository->save($attack, true);
                 return $this->redirectToRoute('app_admin_attack_index', [], Response::HTTP_SEE_OTHER);

@@ -6,8 +6,10 @@ use App\Repository\AttackRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AttackRepository::class)]
+#[Assert\EnableAutoMapping]
 class Attack
 {
     #[ORM\Id]
@@ -21,14 +23,16 @@ class Attack
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
 
-    #[ORM\Column(nullable: true, options: ["default" => 1])]
-    private ?int $cost = null;
+    #[ORM\Column(nullable: false, options: ["default" => 1])]
+    #[Assert\GreaterThan(0)]
+    private int $cost = 0;
 
-    #[ORM\Column(nullable: true, options: ["default" => 1])]
-    private ?int $gain = null;
+    #[ORM\Column(nullable: false, options: ["default" => 1])]
+    #[Assert\GreaterThan(0)]
+    private int $gain = 0;
 
-    #[ORM\Column(nullable: true, options: ["default" => 100])]
-    private ?int $successRate = null;
+    #[ORM\Column(nullable: false, options: ["default" => 100])]
+    private int $successRate = 0;
 
     #[ORM\ManyToMany(targetEntity: Unicorn::class, inversedBy: 'attacks')]
     private Collection $unicorns;

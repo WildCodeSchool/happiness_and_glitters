@@ -30,6 +30,16 @@
         width: 100%;
     }
 
+    // Error messages
+    ul {
+        list-style: none;
+
+        li {
+            color: red;
+            font-weight: bold;
+        }
+    }
+
     .checkboxes-field {
         display: flex;
         flex-flow: row wrap;
