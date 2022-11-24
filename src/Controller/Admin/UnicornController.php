@@ -6,6 +6,7 @@ use App\Entity\Unicorn;
 use App\Form\Admin\UnicornType;
 use App\Repository\AttackRepository;
 use App\Repository\UnicornRepository;
+use App\Service\AvatarUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,13 +27,18 @@ class UnicornController extends AbstractController
     public function new(
         Request $request,
         UnicornRepository $unicornRepository,
-        AttackRepository $attackRepository
+        AttackRepository $attackRepository,
+        AvatarUploader $avatarUploader
     ): Response {
         $unicorn = new Unicorn();
         $form = $this->createForm(UnicornType::class, $unicorn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageData = $form->get('avatar')->getData();
+            if (!is_null($imageData)) {
+                $unicorn->setAvatar($avatarUploader->upload($imageData));
+            }
             $unicornRepository->save($unicorn, true);
 
             return $this->redirectToRoute('app_admin_unicorn_index', [], Response::HTTP_SEE_OTHER);
@@ -58,12 +64,17 @@ class UnicornController extends AbstractController
         Request $request,
         Unicorn $unicorn,
         UnicornRepository $unicornRepository,
-        AttackRepository $attackRepository
+        AttackRepository $attackRepository,
+        AvatarUploader $avatarUploader
     ): Response {
         $form = $this->createForm(UnicornType::class, $unicorn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageData = $form->get('avatar')->getData();
+            if (!is_null($imageData)) {
+                $unicorn->setAvatar($avatarUploader->upload($imageData));
+            }
             $unicornRepository->save($unicorn, true);
 
             return $this->redirectToRoute('app_admin_unicorn_index', [], Response::HTTP_SEE_OTHER);

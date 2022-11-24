@@ -17,7 +17,8 @@ class AttackType extends AbstractType
         $builder
             ->add('name')
             ->add('avatar', FileType::class, [
-                "required" => false
+                "required" => false,
+                "data_class" => null
             ])
             ->add('cost')
             ->add('gain')

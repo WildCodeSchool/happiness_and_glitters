@@ -1,52 +1,56 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block title %}
-    {{ unicorn.name }}
+	{{ unicorn.name }}
 {% endblock %}
 
 {% block admin_body %}
-    <h1>{{ unicorn.name }}</h1>
+	<h1>{{ unicorn.name }}</h1>
 
-    <table class="admin-table">
-        <tbody>
-            <tr>
-                <th>ID</th>
-                <td>{{ unicorn.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ unicorn.name }}</td>
-            </tr>
-            <tr>
-                <th>Avatar</th>
-                <td>{{ unicorn.avatar }}</td>
-            </tr>
-            <tr>
-                <th>Score</th>
-                <td>{{ unicorn.score }}</td>
-            </tr>
-            <tr>
-                <th>Combats</th>
-                <td>{{ unicorn.fights }}</td>
-            </tr>
-            <tr>
-                <th>Victoire</th>
-                <td>{{ unicorn.wonFights }}</td>
-            </tr>
-            <tr>
-                <th>Défaites</th>
-                <td>{{ unicorn.lostFights }}</td>
-            </tr>
-            <tr>
-                <th>KO</th>
-                <td>{{ unicorn.koFights }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="admin-table">
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<td>{{ unicorn.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ unicorn.name }}</td>
+			</tr>
+			<tr>
+				<th>Avatar</th>
+				{% if unicorn.avatar is null %}
+					<td>Aucun</td>
+				{% else %}
+					<td><img src="{{ asset('uploads/images/' ~ unicorn.avatar) }}" alt="Unicorn avatar"/></td>
+				{% endif %}
+			</tr>
+			<tr>
+				<th>Score</th>
+				<td>{{ unicorn.score }}</td>
+			</tr>
+			<tr>
+				<th>Combats</th>
+				<td>{{ unicorn.fights }}</td>
+			</tr>
+			<tr>
+				<th>Victoire</th>
+				<td>{{ unicorn.wonFights }}</td>
+			</tr>
+			<tr>
+				<th>Défaites</th>
+				<td>{{ unicorn.lostFights }}</td>
+			</tr>
+			<tr>
+				<th>KO</th>
+				<td>{{ unicorn.koFights }}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <a href="{{ path('app_admin_unicorn_index') }}">Retour</a>
+	<a href="{{ path('app_admin_unicorn_index') }}">Retour</a>
 
-    <a href="{{ path('app_admin_unicorn_edit', {'id': unicorn.id}) }}">Editer</a>
+	<a href="{{ path('app_admin_unicorn_edit', {'id': unicorn.id}) }}">Editer</a>
 
-    {{ include('admin/unicorn/_delete_form.html.twig') }}
+	{{ include('admin/unicorn/_delete_form.html.twig') }}
 {% endblock %}

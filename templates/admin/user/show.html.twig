@@ -31,7 +31,11 @@
 			</tr>
 			<tr>
 				<th>Avatar</th>
-				<td>{{ user.avatar }}</td>
+				{% if user.avatar is null %}
+					<td>Aucun</td>
+				{% else %}
+					<td><img src="{{ asset('uploads/images/' ~ user.avatar) }}" alt="Unicorn avatar"/></td>
+				{% endif %}
 			</tr>
 			<tr>
 				<th>Description</th>

@@ -1,7 +1,7 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block title %}
-    Licornes
+	Licornes
 {% endblock %}
 
 {% block admin_body %}
@@ -28,7 +28,11 @@
 				<tr>
 					<td>{{ unicorn.id }}</td>
 					<td>{{ unicorn.name }}</td>
-					<td>{{ unicorn.avatar }}</td>
+					{% if unicorn.avatar is null %}
+						<td>Aucun</td>
+					{% else %}
+						<td><img src="{{ asset('uploads/images/' ~ unicorn.avatar) }}" alt="Unicorn avatar"/></td>
+					{% endif %}
 					<td>{{ unicorn.score }}</td>
 					<td>{{ unicorn.fights }}</td>
 					<td>{{ unicorn.wonFights }}</td>

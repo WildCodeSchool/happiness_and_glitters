@@ -16,7 +16,10 @@ class UnicornType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('avatar', FileType::class)
+            ->add('avatar', FileType::class, [
+                "required" => false,
+                "data_class" => null
+            ])
             ->add('score')
             ->add('fights')
             ->add('wonFights')
