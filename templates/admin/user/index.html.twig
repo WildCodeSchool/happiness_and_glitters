@@ -17,7 +17,7 @@
 				<th>Avatar</th>
 				<th>Description</th>
 				<th>Score</th>
-				<th>Roles</th>
+				<th>Admin</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -32,7 +32,7 @@
 					<td>{{ user.avatar }}</td>
 					<td>{{ user.description }}</td>
 					<td>{{ user.score }}</td>
-					<td>{{ user.roles|json_encode(constant('JSON_PRETTY_PRINT')) }}</td>
+					<td>{{ ('ROLE_ADMIN' in user.roles) ? 'Oui' : 'Non' }}</td>
 					<td>
 						<a href="{{ path('app_admin_user_show', {'id': user.id}) }}">Infos</a>
 						<a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>

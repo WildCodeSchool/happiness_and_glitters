@@ -42,8 +42,8 @@
 				<td>{{ user.score }}</td>
 			</tr>
 			<tr>
-				<th>Roles</th>
-				<td>{{ user.roles|json_encode(constant('JSON_PRETTY_PRINT')) }}</td>
+				<th>Admin</th>
+				<td>{{ ('ROLE_ADMIN' in user.roles) ? 'Oui' : 'Non'  }}</td>
 			</tr>
 		</tbody>
 	</table>
