@@ -6,6 +6,7 @@ use App\Entity\Unicorn;
 use App\Entity\Attack;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,7 @@ class UnicornType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('avatar')
+            ->add('avatar', FileType::class)
             ->add('score')
             ->add('fights')
             ->add('wonFights')
