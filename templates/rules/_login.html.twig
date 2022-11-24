@@ -1,0 +1,21 @@
+{% block content %}
+	<section class="formSection">
+		<h2>Login</h2>
+		{{ form_start(loginForm, {'attr' : {'action' : path('app_login')}}) }}
+		<div class="show-errors">
+			{{ form_errors(loginForm) }}
+
+		</div>
+		{{form_row(loginForm.email)}}
+
+		{{form_row(loginForm.password)}}
+
+
+		<div class="imageHolder">
+			<button class="redButton" type="submit">Connection</button>
+		</div>
+		{{ form_end(loginForm) }}
+
+	</section>
+
+{% endblock %}
