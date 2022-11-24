@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\UserLoginType;
+use App\Form\LoginType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +15,7 @@ class AdminController extends AbstractController
     #[Route('/login', name: 'login', methods: ["GET", "POST"])]
     public function login(Request $request, UserRepository $userRepository): Response
     {
-        $form = $this->createForm(UserLoginType::class);
+        $form = $this->createForm(LoginType::class);
         $form->handleRequest($request);
 
         return $this->renderForm('admin/login.html.twig', [
