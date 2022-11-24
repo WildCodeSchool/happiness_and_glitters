@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Classement -
+	{{ parent() }}
+{% endblock %}
+
+{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/ranking.css">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<h1>Classement</h1>
+		<section class="info">
+			<div class="info-session">
+				<h2>Tes infos</h2>
+				<ul>
+					{% set rank = 1 %}
+					{% for user in users %}
+						{% if sessionUser.id is same as(user.id) %}
+							<li>
+								<p>Rang
+									{{rank}}
+								</p>
+							</li>
+							<li>
+								<p>Points
+									{{user.score}}
+								</p>
+							</li>
+						{% endif %}
+						{% set rank =  rank + 1  %}
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="podium">
+				{% for user in users|slice(0,3) %}
+					<div class="rank">
+						<figcaption>{{user.nickName}}</figcaption>
+						<img src="/assets/images/profile/{{user.avatar}}" alt="{{user.nickName}}"/>
+						<div class="podium-{{loop.index}}">
+							<div class="podium-score">{{user.score}}</div>
+							<img class="podium-img" src="/assets/images/podium2.png"/>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+		<table>
+			<tr>
+				<th></th>
+				<th>Rang</th>
+				<th>Pseudo</th>
+				<th>Points</th>
+			</tr>
+			{% set rank = 1 %}
+			{% for user in users %}
+				<tr>
+					<td><img src="/assets/images/profile/{{user.avatar}}"/></td>
+					<td>{{rank}}</td>
+					<td class="left-justify">{{user.nickName}}</td>
+					<td class="right-justify">{{user.score}}</td>
+				</tr>
+				{% set rank =  rank + 1  %}
+			{% endfor %}
+		</table>
+	</main>
+{% endblock %}
+{% block javascript %}
+	{{parent()}}
+{% endblock %}

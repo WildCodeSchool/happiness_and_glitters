@@ -1,0 +1,37 @@
+{% block content %}
+<section class="formSection">
+	<form method="post" enctype="multipart/form-data" >
+		<h2>Modifier mes infos</h2>
+		
+	 	<div class="show-errors">
+			{% for err in errors %}
+				<p>{{ err }}</p>
+			{% endfor %}
+		</div>
+
+		<div class="userPic" id="imageHolder">
+		<img src="/../assets/images/profile/{{ user.avatar }}" alt="Avatar" class="userPic" id="avatar-src" >
+		</div>
+
+		<input type="hidden" value="{{user.id}}" name="id" id="id" placeholder="id" >
+		<input type="hidden" value="{{user.score}}" name="score" id="score" placeholder="score" >
+
+		<input type="text" value="{{user.firstName}}" name="firstName" id="firstName" placeholder="Prénom" pattern="[A-Za-z]{1-45}" required>
+
+		<input type="text" value="{{user.lastName}}" name="lastName" id="lastName" placeholder="Nom" pattern="[A-Za-z]{1-45}" required>
+
+		<input type="text" value="{{user.nickName}}" name="nickName" id="nickName" placeholder="Pseudo" pattern="[A-Za-z0-9]{1-45}" required>
+
+		<input type="text" value="{{user.email}}" name="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+		<input id="avatar" name="avatar" type="file" value="{{user.avatar}}" accept="image/*" onchange="showPreview(event);"/>
+
+		<textarea rows="4" name="description" id="description" placeholder="Description"/>{{user.description}}</textarea>
+
+		<div class="modalButtons">
+			<button class="redButton">Enregistrer</button><br>
+			<button onclick="location.href='/users/show?id={{ user.id }}'" type="button" class="cancelButton">Retour</button>
+		</div>
+	</form>
+</section>
+{% endblock %}

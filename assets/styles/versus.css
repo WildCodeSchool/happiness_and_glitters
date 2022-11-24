@@ -1,0 +1,25 @@
+.versus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.versus img {
+    width: 200px;
+    margin: 5px;
+}
+
+.versus .versus-image img {
+    width: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .versus img {
+        width: 130px;
+    }
+
+    .versus .versus-image img {
+        width: 80px;
+    }
+}

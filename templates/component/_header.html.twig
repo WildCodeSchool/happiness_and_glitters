@@ -1,0 +1,29 @@
+<header class="topHeader">
+	<a href="/">
+		<img class="unicornLogo" src="{{ asset('build/images/logo4.png') }}">
+	</a>
+
+	<a class="headerLinks headerTitle" href="/">Happiness & Glitters
+	</a>
+
+	{% if app.user is defined and app.user %}
+		<a href={{app.user ? "/users/show?id=" ~ app.user.id : "#"}}><img class='imgavatar' alt={{app.user.nickname}} src={{"/assets/images/profile/" ~ app.user.avatar }}></a>
+	{% endif %}
+
+
+	<button type="button" class="icon{{app.user is defined and app.user ? '':' notconnected' }}" onclick="displayMenu()" id="burger">
+		<i class="fa-solid fa-bars"></i>
+	</button>
+
+</header>
+
+<aside class=" topnav responsivenav{{app.user is defined and app.user ? '':' notconnected' }}" id="mytopnav">
+
+	<ul>
+		<li><a class="headerLinks radiusButton" href="/rules">Règles</a></li>
+		<li><a class="headerLinks radiusButton"href={{app.user is defined and app.user ? "/users/show?id=" ~ app.user.id : "#"}}>Mon profil</a></li>
+		<li><a class="headerLinks radiusButton" href="/users">Classement</a></li>
+		<li><a class="headerLinks radiusButton" href="/fight">Combat</a></li>
+		<li><a class="headerLinks radiusButton"href="{{ path('app_logout')}}">Logout</a></li>
+	</ul>
+</aside>

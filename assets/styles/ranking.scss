@@ -1,0 +1,151 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 95%;
+    font-family: var(--primary-font);
+}
+
+main table th,
+main table td {
+    border: lightgrey 1px solid;
+}
+
+main td img {
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+}
+
+main table tr:nth-child(even) {
+    background-color: Lightgrey;
+}
+
+main table {
+    font-size: 3vw;
+    color: var(--primary-color);
+    text-align: center;
+    width: 85%;
+    height: 100%;
+    overflow: auto;
+    margin-top: 5vw;
+    border: lightgrey 1px solid;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 8vw;
+}
+
+.left-justify {
+    text-align: left;
+}
+
+.right-justify {
+    text-align: right;
+}
+
+section.info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.info-session {
+    color: var(--primary-color);
+    font-size: 3vw;
+    background-color: var(--third-color);
+    padding: 2vw;
+    border-radius: 2vw;
+    border: 0.3vw solid;
+    border-color: whitesmoke;
+}
+
+.podium {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 60vw;
+    height: 40vw;
+    font-size: 2vw;
+    max-width: 600px;
+}
+
+.rank img {
+    width: 9vw;
+    height: 9vw;
+}
+
+.rank div img {
+    width: 7vw;
+    height: 7vw;
+}
+
+.rank {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.podium-1,
+.podium-2,
+.podium-3 {
+    width: 15vw;
+    max-width: 150px;
+    border-top-width: 0;
+    border-top-style: solid;
+    border-top-left-radius: 2.8vw;
+    border-top-right-radius: 2.8vw;
+    color: var(--primary-color);
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.podium-img {
+    opacity: 0.3;
+}
+
+.podium-score {
+    border-top-width: 0;
+    border-top-style: solid;
+    border-top-left-radius: 2.8vw;
+    border-top-right-radius: 2.8vw;
+    background-image: linear-gradient(to right,
+            var(--primary-color),
+            var(--third-color),
+            var(--primary-color));
+    width: 100%;
+    text-align: center;
+}
+
+.podium-1 {
+    background-image: linear-gradient(to right, #6e570c, #f5cc45, #6e570c);
+    height: 25vw;
+    border-top-color: #552403;
+}
+
+.podium-2 {
+    background-image: linear-gradient(to right,
+            rgb(122, 94, 94),
+            silver,
+            rgb(122, 94, 94));
+    height: 18vw;
+    border-top-color: rgb(65, 48, 48);
+}
+
+.podium-3 {
+    background-image: linear-gradient(to right, #9c5221, #e69159, #9c5221);
+    height: 12vw;
+    border-top-color: #41230f;
+}
+
+figcaption {
+    align-content: center;
+}
