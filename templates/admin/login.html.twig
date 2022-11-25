@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block admin_header %}{% endblock %}
+
+{% block admin_body %}
+    <div class="admin-auth-container">
+        <div class="box">
+            <h1>Administration</h1>
+            {% include "admin/_loginForm.html.twig" %}
+        </div>
+    </div>
+{% endblock %}

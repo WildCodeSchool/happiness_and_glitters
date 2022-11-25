@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 //start coding by removing this file and adding yours ;)
 @import "wcs";
 @import "style.scss";
@@ -23,4 +29,3 @@ form div textarea
 {
     width: 100%;
 }
-

@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Editer les attaques{% endblock %}
+
+{% block admin_body %}
+    <h1>Editer une attaque</h1>
+
+    {{ include('admin/attack/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('app_admin_attack_index') }}">Retour</a>
+
+    {{ include('admin/attack/_delete_form.html.twig') }}
+{% endblock %}

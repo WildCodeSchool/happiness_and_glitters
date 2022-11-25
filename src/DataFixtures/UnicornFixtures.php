@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Unicorn;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -25,11 +26,12 @@ class UnicornFixtures extends Fixture implements DependentFixtureInterface
             $unicorn->setWonFights($wonFights);
             $unicorn->setLostFights($lostFights);
             $unicorn->setKoFights($koFights);
+            $unicorn->setUpdatedAt(new DateTime('now'));
 
             $attacksRefs = range(0, 14);
             shuffle($attacksRefs);
             for ($j = 0; $j < 3; $j++) {
-                $unicorn->addAttack($this->getReference('attack_' . $attacksRefs[$i]));
+                $unicorn->addAttack($this->getReference('attack_' . $attacksRefs[$j]));
             }
 
             $manager->persist($unicorn);
