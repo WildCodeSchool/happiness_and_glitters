@@ -4,7 +4,7 @@
 {% endblock %}
 
 
-{% block body %}
+{% block content %}
 <main class="homePages">
   <section>
     <img  src="{{ asset('build/images/unicorn-index.png') }}"  class="imgMedium" >
@@ -27,12 +27,6 @@
 	  <a href="/rules" class="redButton">Voir Règles! </a>
   </section>
 
-
-</main>
-{% block title %}Home
-{% endblock %}
-
-{% block content %}
 	<div class="pink-stripe">
 		<h1>
 			Let's start coding&nbsp;&#129304;
@@ -43,9 +37,4 @@
 		<a href="{{ path('app_rules_index') }}">Add a User</a><br>
 		<a href="{{ path('app_user_index') }}">Classement</a><br>
 	</div>
-{% endblock %}
-
-{% block javascript %}
-{{ parent() }}
-  <script src="/assets/js/header.js"></script>
 {% endblock %}
