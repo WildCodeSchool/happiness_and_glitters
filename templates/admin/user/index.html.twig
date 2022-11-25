@@ -39,7 +39,6 @@
 					<td>{{ ('ROLE_ADMIN' in user.roles) ? 'Oui' : 'Non' }}</td>
 					<td>
 						<a href="{{ path('app_admin_user_show', {'id': user.id}) }}">Infos</a>
-						<a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
 						{% if app.user.id != user.id %}
 							<a href="{{ path('app_admin_user_toggle_admin', {'id': user.id}) }}">Admin On/Off</a>
 						{% endif %}

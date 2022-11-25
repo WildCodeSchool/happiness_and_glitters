@@ -1,12 +1,14 @@
 .admin-container {
     border: solid $adminBorderColor 1px;
-    border-radius: 0.5rem;
+    border-radius: $adminBorderRadius;
     color: black;
     display: block;
     height: calc(100vh - 5rem);
     margin: 1rem;
     overflow: auto;
+    scrollbar-color: $adminBorderColor transparent;
     padding: 1rem;
+    width: initial;
 
     a,
     button {
