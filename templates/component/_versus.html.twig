@@ -1,0 +1,15 @@
+{% block content %}
+	<div class="versus">
+		<div class="user-image">
+			<img src="/assets/images/profile/{{ sessionUser.avatar }}" alt="Avatar" class="userPic">
+		</div>
+		<div class="versus-image">
+			<img src="/assets/images/versus.png" alt="Versus" class="userPic">
+		</div>
+		<div
+			class="opponent-image">
+			<!-- the image src is destined to be changed when the opponent avatar is accessible -->
+			<img src="/assets/images/profile/{{ opponentUser.avatar }}" alt="Avatar" class="userPic">
+		</div>
+	</div>
+{% endblock %}

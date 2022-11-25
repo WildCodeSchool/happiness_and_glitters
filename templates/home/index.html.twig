@@ -29,6 +29,20 @@
 
 
 </main>
+{% block title %}Home
+{% endblock %}
+
+{% block content %}
+	<div class="pink-stripe">
+		<h1>
+			Let's start coding&nbsp;&#129304;
+		</h1>
+	</div>
+	<div class="white-stripe">
+		<img src="{{ asset('build/images/LOGO_WILD_CODE_SCHOOL.png') }}" alt="">
+		<a href="{{ path('app_rules_index') }}">Add a User</a><br>
+		<a href="{{ path('app_user_index') }}">Classement</a><br>
+	</div>
 {% endblock %}
 
 {% block javascript %}

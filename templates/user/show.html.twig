@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Personal Profil -
+	{{ parent() }}
+{% endblock %}
+
+
+{% block content %}
+	<main>
+		<aside id="id01" class="modal">
+			<div class="modal-content">
+				<section class="formSection" style="width: 85%;">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					{# <section class="formSection formSectionModale"> #}
+
+					<h2 class="deleteWarning">Tu es sûr de vouloir nous quitter
+						{{user.nickName}}?</h2>
+					<div class="centerImg">
+						<img src="/assets/images/crying-unicorn.png"/>
+					</div>
+
+					<div class="modalButtons">
+						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelButton">Cancel</button><br>
+						<button onclick="location.href='delete?id={{ user.id }}'" type="button" class="redButton">Delete account</button>
+					</div>
+				</section>
+			</div>
+		</aside>
+
+		<section class="top">
+
+			<div class="left-top">
+				<img src="/assets/images/profile/{{ user.avatar }}" alt="Avatar" class="userPic">
+			</div>
+
+			<div class="right-top">
+				<h2>Ton Score</h2>
+				<div class="points">{{ user.score }}
+					Points</div>
+			</div>
+
+		</section>
+
+		<section class="bottomSection">
+
+			<h1 class="detailsTitle">Mes infos
+				<a href="/users/edit?id={{ user.id }}" class="editPen">✏️</a>
+			</h1>
+
+			<table>
+				<tr>
+					<td>Prenom</td>
+					<td>{{ user.firstName }}</td>
+				</tr>
+				<tr>
+					<td>Nom</td>
+					<td>{{ user.lastName }}</td>
+				</tr>
+				<tr>
+					<td>Nickname</td>
+					<td>{{ user.nickName }}</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>{{ user.email }}</td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td>{{ user.description }}</td>
+				</tr>
+			</table>
+
+			<div class="endDiv">
+				<a href="#" onclick="document.getElementById('id01').style.display='block'">Supprimer mon profil</a>
+				<a href="/users">⬅️ Retour</a>
+			</div>
+
+		</section>
+	</main>
+{% endblock %}
+{% block javascript %}
+	{{parent()}}
+	<script type="application/javascript" src="/assets/js/confirmModale.js"></script>
+{% endblock %}

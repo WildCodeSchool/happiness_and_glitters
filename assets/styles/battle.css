@@ -1,0 +1,147 @@
+main.fight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.fight section.battle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+main.fight section.battle div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.fight section.battle div h3 {
+    text-align: center;
+}
+
+main.fight section.battle .versus {
+    width: 90px;
+    object-fit: scale-down;
+    margin: 0 5rem;
+}
+
+main.fight section.battle .player {
+    object-fit: scale-down;
+    height: 200px;
+}
+
+main.fight section.round {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    background-color: rgba(250, 207, 207, 1);
+    border-radius: 6px;
+    box-shadow: 0px 4px 3px 1px rgba(0, 0, 0, 0.219);
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+main.fight section ol {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+}
+
+main.fight section ol li {
+    margin: 3px;
+    font-size: 16px;
+    color: var(--fourth-color);
+    width: 200px;
+    text-align: center;
+}
+
+main.fight div.tableau {
+    border-radius: 6px;
+    background: rgb(250, 207, 207);
+    background: linear-gradient(
+        180deg,
+        rgba(250, 207, 207, 1) 20%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    width: 80%;
+    color: var(--fourth-color);
+    margin-bottom: 40px;
+}
+
+main.fight section.name {
+    color: var(--fourth-color);
+    font-size: 16px;
+    text-align: center;
+}
+
+main.fight div.containerTableau {
+    display: flex;
+    padding: 20px;
+    box-shadow: 0px 4px 3px 1px rgba(0, 0, 0, 0.219);
+}
+
+main.fight div.containerTableau section.avatarCapacity {
+    width: 30%;
+}
+
+main.fight div.tableau section div.titleTableau {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+main.fight section div.capacity {
+    color: var(--fourth-color);
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+main.fight section div.capacity > div {
+    padding: 0 5px;
+    width: 200px;
+    text-align: center;
+}
+
+main.fight section.containerRedButton {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+main.fight section.containerRedButton div a.selectAttack {
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    margin: 0;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+main.fight section.containerRedButton > div {
+    width: 20%;
+    padding: 15px 60px;
+    border-radius: 60px;
+    background: linear-gradient(
+        to bottom,
+        var(--primary-color) 5%,
+        var(--primary-hover) 100%
+    );
+    text-align: center;
+}
+
+main.fight section {
+    width: 100%;
+}
