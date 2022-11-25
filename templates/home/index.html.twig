@@ -1,9 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home
+{% block title %}Accueil - {{parent()}}
 {% endblock %}
 
+
 {% block content %}
+<main class="homePages">
+  <section>
+    <img  src="{{ asset('build/images/unicorn-index.png') }}"  class="imgMedium" >
+    <h1>Bienvenue dans Happiness & Glitters</h1>
+  </section>
+  <section>
+    <p> Ici tu vas pouvoir mettre à l'épreuve ta licorne et défier celle de ton adversaire !</p>
+
+    <div class="versus">
+      <img src="{{ asset('build/images/unicorn-left.png') }}">
+      <img src="{{ asset('build/images/vs-index.png') }}">
+      <img src="{{ asset('build/images/unicorn-right.png') }}">
+    </div>
+
+    <p>Le but du jeu ? Envoyer le plus de bisous, de hugs et d'arc-en-ciel possible
+    </br>pour gagner des points et sortir vainqueur de ce combat d'amour! </p>
+  </section>
+  <section class="bottomSection">
+    <img src="{{ asset('build/images/dab-unicorn.png') }}" class="imgMedium" >
+	  <a href="/rules" class="redButton">Voir Règles! </a>
+  </section>
+
 	<div class="pink-stripe">
 		<h1>
 			Let's start coding&nbsp;&#129304;
