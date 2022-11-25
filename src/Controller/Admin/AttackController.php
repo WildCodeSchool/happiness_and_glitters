@@ -6,7 +6,6 @@ use App\Entity\Attack;
 use App\Form\Admin\AttackType;
 use App\Repository\AttackRepository;
 use App\Repository\UnicornRepository;
-use App\Service\AvatarUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +29,6 @@ class AttackController extends AbstractController
         AttackRepository $attackRepository,
         UnicornRepository $unicornRepository,
         ValidatorInterface $validator,
-        AvatarUploader $avatarUploader
     ): Response {
         $attack = new Attack();
         $form = $this->createForm(AttackType::class, $attack);
@@ -39,11 +37,6 @@ class AttackController extends AbstractController
         if ($form->isSubmitted()) {
             if ($attack->getCost() > 0 && $attack->getGain() > 0) {
                 $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
-            }
-
-            $imageData = $form->get('avatar')->getData();
-            if (!is_null($imageData)) {
-                $attack->setAvatar($avatarUploader->upload($imageData));
             }
 
             if (count($validator->validate($attack)) < 1) {
@@ -74,17 +67,13 @@ class AttackController extends AbstractController
         AttackRepository $attackRepository,
         UnicornRepository $unicornRepository,
         ValidatorInterface $validator,
-        AvatarUploader $avatarUploader
     ): Response {
         $form = $this->createForm(AttackType::class, $attack);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
-
-            $imageData = $form->get('avatar')->getData();
-            if (!is_null($imageData)) {
-                $attack->setAvatar($avatarUploader->upload($imageData));
+            if ($attack->getCost() > 0 && $attack->getGain() > 0) {
+                $attack->setSuccessRate((int)(($attack->getCost() / $attack->getGain()) * 100));
             }
 
             if (count($validator->validate($attack)) < 1) {

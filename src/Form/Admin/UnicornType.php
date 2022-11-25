@@ -4,37 +4,23 @@ namespace App\Form\Admin;
 
 use App\Entity\Unicorn;
 use App\Entity\Attack;
-use App\Service\AvatarUploader;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\File;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class UnicornType extends AbstractType
 {
-    public function __construct(private AvatarUploader $avatarUploader)
-    {
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name')
-            ->add('avatar', FileType::class, [
+            ->add('avatarFile', VichFileType::class, [
                 "required" => false,
-                "data_class" => null,
-                "constraints" => new File([
-                    'maxSize' => $this->avatarUploader->getMaxFileSize(),
-                    'mimeTypes' => $this->avatarUploader->getAuthorizedMimeTypes()
-                ])
+                "allow_delete" => true,
+                "download_uri" => false
             ])
-            ->add('score')
-            ->add('fights')
-            ->add('wonFights')
-            ->add('lostFights')
-            ->add('koFights')
             ->add('attacks', EntityType::class, [
                 "class" => Attack::class,
                 "multiple" => true,

@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Attack;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory as Faker;
@@ -22,6 +23,7 @@ class AttackFixtures extends Fixture
             $attack->setCost($cost);
             $attack->setGain($gain);
             $attack->setSuccessRate($successRate);
+            $attack->setUpdatedAt(new DateTime('now'));
 
             $this->addReference("attack_" . $i, $attack);
 

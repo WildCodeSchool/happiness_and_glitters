@@ -3,13 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\AttackRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: AttackRepository::class)]
 #[Assert\EnableAutoMapping]
+#[Vich\Uploadable]
 class Attack
 {
     #[ORM\Id]
@@ -22,6 +26,13 @@ class Attack
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
+
+    #[Vich\UploadableField(mapping: 'avatar', fileNameProperty: 'avatar')]
+    #[Assert\File(
+        maxSize: '2M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
+    private ?File $avatarFile = null;
 
     #[ORM\Column(nullable: false, options: ["default" => 1])]
     #[Assert\GreaterThan(0)]
@@ -36,6 +47,9 @@ class Attack
 
     #[ORM\ManyToMany(targetEntity: Unicorn::class, inversedBy: 'attacks')]
     private Collection $unicorns;
+
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function __construct()
     {
@@ -127,6 +141,45 @@ class Attack
     public function removeUnicorn(Unicorn $unicorn): self
     {
         $this->unicorns->removeElement($unicorn);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of avatarFile
+     */
+    public function getAvatarFile(): ?File
+    {
+        return $this->avatarFile;
+    }
+
+    /**
+     * Set the value of avatarFile
+     */
+    public function setAvatarFile(?File $avatarFile = null): self
+    {
+        $this->avatarFile = $avatarFile;
+        if ($avatarFile) {
+            $this->updatedAt = new DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updatedAt
+     */
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     */
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

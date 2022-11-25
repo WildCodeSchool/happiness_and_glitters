@@ -22,7 +22,7 @@
 				{% if unicorn.avatar is null %}
 					<td>Aucun</td>
 				{% else %}
-					<td><img src="{{ asset('uploads/images/' ~ unicorn.avatar) }}" alt="Unicorn avatar"/></td>
+					<td><img src="{{ vich_uploader_asset(unicorn) }}" alt="Unicorn avatar"/></td>
 				{% endif %}
 			</tr>
 			<tr>
