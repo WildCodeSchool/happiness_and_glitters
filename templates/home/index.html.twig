@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}
 	- Home
 {% endblock %}
@@ -37,5 +38,7 @@
 </div>
 <div class="white-stripe">
 	<img src="{{ asset('build/images/LOGO_WILD_CODE_SCHOOL.png') }}" alt="">
-	<<<<<<<HEAD=======<ahref="{{path('app_rules_index')}}">AddaUser</a><br><ahref="{{path('app_user_index')}}">Classement</a><br>>>>>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4
+
+	<a href="{{ path('app_rules_index') }}">Add a User</a><br>
+	<a href="{{ path('app_user_index') }}">Classement</a><br>
 </div>{% endblock %}
