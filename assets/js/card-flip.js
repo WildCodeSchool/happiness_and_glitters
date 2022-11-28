@@ -6,12 +6,12 @@ let cardDivContent = cardDiv.innerHTML;
 
 function flipWithTimeout() {
     if (cardDiv.innerHTML === cardDivContent) {
-        cardDiv.classList.add('flip-2-ver-right-2');
+        cardDiv.classList.add("flip-2-ver-right-2");
         blink.innerHTML = "<p>Clique sur le texte !</p>";
         setTimeout(removeClass, 450);
         cardDiv.innerHTML = textDivContent;
     } else {
-        cardDiv.classList.add('flip-2-ver-right-2');
+        cardDiv.classList.add("flip-2-ver-right-2");
         blink.innerHTML = "<p>Clique sur la licorne !</p>";
         setTimeout(removeClass, 450);
         cardDiv.innerHTML = cardDivContent;
@@ -19,7 +19,6 @@ function flipWithTimeout() {
 }
 
 function removeClass() {
-    cardDiv.classList.remove('flip-2-ver-right-2');
+    cardDiv.classList.remove("flip-2-ver-right-2");
 }
-
-cardDiv.addEventListener('click', flipWithTimeout);
+cardDiv.addEventListener("click", flipWithTimeout);

@@ -8,22 +8,22 @@ main {
     font-family: var(--primary-font);
 }
 
-main table th,
-main table td {
+.tableRanking th,
+.tableRanking td {
     border: lightgrey 1px solid;
 }
 
-main td img {
+.tableRanking td img {
     width: 6.5vw;
     height: 6.5vw;
     border-radius: 50%;
 }
 
-main table tr:nth-child(even) {
+.tableRanking tr:nth-child(even) {
     background-color: Lightgrey;
 }
 
-main table {
+.tableRanking {
     font-size: 3vw;
     color: var(--primary-color);
     text-align: center;
@@ -74,17 +74,17 @@ section.info {
     max-width: 600px;
 }
 
-.rank img {
+.ranking img {
     width: 9vw;
     height: 9vw;
 }
 
-.rank div img {
+.ranking div img {
     width: 7vw;
     height: 7vw;
 }
 
-.rank {
+.ranking {
     display: flex;
     flex-direction: column;
     justify-content: space-around;

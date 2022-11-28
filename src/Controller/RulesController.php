@@ -14,13 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RulesController extends AbstractController
 {
-    /**
-     * Display rules page
-     */
+    public function __construct(private UserPasswordHasherInterface $hasher)
+    {
+    }
     #[Route('/rules', name: 'app_rules_index', methods: ['GET'])]
     public function index(Request $request): Response
     {
-        $modal = 0;
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -30,7 +29,6 @@ class RulesController extends AbstractController
             'user' => $user,
             'form' => $form,
             'loginForm' => $loginForm,
-            'modal' => $modal
         ]);
     }
 
@@ -40,18 +38,15 @@ class RulesController extends AbstractController
         UserPasswordHasherInterface $pswdHasher,
         UserRepository $userRepository
     ): Response {
-        $modal = 1;
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword($pswdHasher->hashPassword($user, $user->getPassword()));
+            $password = $request->request->all("user")["password"]["first"];
+            $user->setPassword($this->hasher->hashPassword($user, $password));
             $userRepository->save($user, true);
             $login = $this->createForm(LoginType::class, $user);
-            $login->handleRequest($request);
-            $modal = 2;
-            //$form = $this->createForm(UserType::class, $user);
         } else {
             $login = $this->createForm(LoginType::class, $user);
         }
@@ -59,28 +54,26 @@ class RulesController extends AbstractController
             'user' => $user,
             'form' => $form,
             'loginForm' => $login,
-            'modal' => $modal
         ]);
     }
 
     #[Route('/login', name: 'app_login', methods: ['GET', 'POST'])]
-    public function login(Request $request, UserRepository $userRepository): Response
+    public function login(Request $request): Response
     {
-        $modal = 2;
         $user = new User();
-        $form = $this->createForm(LoginType::class, $user);
-        $form->handleRequest($request);
+        $loginForm = $this->createForm(LoginType::class, $user);
+        $form = $this->createForm(userType::class, $user);
+        $loginForm->handleRequest($request);
         return $this->renderForm('rules/index.html.twig', [
             'user' => $user,
-            'loginForm' => $form,
-            'modal' => $modal
+            'loginForm' => $loginForm,
+            'form' => $form,
         ]);
     }
 
     #[Route('/logout', name: 'app_logout', methods: ['GET', 'POST'])]
     public function logout(Request $request, UserRepository $userRepository): Response
     {
-        $modal = 0;
         $user = new User();
         $form = $this->createForm(LoginType::class, $user);
         $form->handleRequest($request);
@@ -88,7 +81,6 @@ class RulesController extends AbstractController
         return $this->renderForm('rules/index.html.twig', [
             'user' => $user,
             'loginForm' => $form,
-            'modal' => $modal
         ]);
     }
 }

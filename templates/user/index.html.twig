@@ -1,11 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index
-{% endblock %}
-{% block stylesheets %}
+{% block title %}User index -
 	{{parent()}}
-	<link rel="stylesheet" href="{{ asset('build/styles/ranking.css') }}">
-
 {% endblock %}
 
 {% block content %}
@@ -35,18 +31,23 @@
 			</div>
 			<div class="podium">
 				{% for user in users|slice(0,3) %}
-					<div class="rank">
+					<div class="ranking">
 						<figcaption>{{user.nickName}}</figcaption>
-						<img src="/build/images/profile/{{user.avatar}}" alt="{{user.nickName}}"/>
-						<div class="podium-{{loop.index}}">
+						{% if user.avatar is not defined or user.avatar == ('') %}
+							<img class='userPic' src="{{ asset('build/images/img_avatar.png')}}" alt="{{user.nickName}}"/>
+						{% else %}
+							<img class='userPic' src="{{ asset(vich_uploader_asset(user))}}" alt="{{user.nickName}}"/>
+
+						{% endif %}
+						<div class=" podium-{{loop.index}} ">
 							<div class="podium-score">{{user.score}}</div>
-							<img class="podium-img" src="/build/images/podium2.png"/>
+							<img class="podium-img" src="{{ asset('build/images/podium2.png')}}"/>
 						</div>
 					</div>
 				{% endfor %}
 			</div>
 		</section>
-		<table>
+		<table class="tableRanking">
 			<tr>
 				<th></th>
 				<th>Rang</th>
@@ -56,7 +57,11 @@
 			{% set rank = 1 %}
 			{% for user in users %}
 				<tr>
-					<td><img src="/build/images/profile/{{user.avatar}}"/></td>
+					{% if (user.avatar is not defined) or (user.avatar == ('')) %}
+						<td><img class='userPic' src="{{ asset('build/images/img_avatar.png')}}"/></td>
+					{% else %}
+						<td><img class='userPic' src="{{ asset(vich_uploader_asset(user))}}"/></td>
+					{% endif %}
 					<td>{{rank}}</td>
 					<td class="left-justify">{{user.nickName}}</td>
 					<td class="right-justify">{{user.score}}</td>

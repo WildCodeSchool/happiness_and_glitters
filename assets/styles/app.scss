@@ -7,20 +7,5 @@
 @import "rules.scss";
 @import "login.scss";
 @import "userForm.scss";
-
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-form div {
-    width : 60%;
-    margin-bottom : 2%;
-}
-
-form div input,
-form div textarea
-{
-    width: 100%;
-}
-
+@import "show.scss";
+@import "index.scss";

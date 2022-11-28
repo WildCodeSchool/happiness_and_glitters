@@ -1,58 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}
+	- Personal Profile
+{% endblock %}
 
-{% block body %}
-    <h1>User</h1>
+{% block content %}
+	<main>
+		<aside id="id01" class="modal">
+			<div class="modal-content">
+				<section class="formSection" style="width: 85%;">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ user.firstname }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ user.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Nickname</th>
-                <td>{{ user.nickname }}</td>
-            </tr>
-            <tr>
-                <th>Avatar</th>
-                <td>{{ user.avatar }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ user.description }}</td>
-            </tr>
-            <tr>
-                <th>Score</th>
-                <td>{{ user.score }}</td>
-            </tr>
-        </tbody>
-    </table>
+					<h2 class="deleteWarning">Tu es sûr de vouloir nous quitter
+						{{user.nickName}}?</h2>
+					<div class="centerImg">
+						<img src="{{ asset('build/images/crying-unicorn.png') }}"/>
+					</div>
+					<form action="{{ path('app_user_delete', {'id': user.id} ) }}" method="post">
+						<div class="modalButtons">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+							<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelButton">Abandon</button><br>
+							<button type="submit" formaction="{{ path('app_user_delete', {'id': user.id}) }}" class="redButton">Supprimer Mon Compte</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</aside>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+		<section class="top">
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+			<div class="left-top">
+				<img src="{{ vich_uploader_asset(user) }}" alt="Avatar" class="userPic">
+			</div>
 
-    {{ include('user/_delete_form.html.twig') }}
+			<div class="right-top">
+				<h2>Ton Score</h2>
+				<div class="points">{{ user.score }}
+					Points</div>
+			</div>
+
+		</section>
+
+		<section class="bottomSection">
+
+			<h1 class="detailsTitle">Mes infos
+				<a href={{ path( "app_user_edit", { 'id' : user.id } ) }} class="editPen">✏️</a>
+			</h1>
+
+			<table class="tableShow">
+				<tr>
+					<td>Prenom</td>
+					<td>{{ user.firstName }}</td>
+				</tr>
+				<tr>
+					<td>Nom</td>
+					<td>{{ user.lastName }}</td>
+				</tr>
+				<tr>
+					<td>Nickname</td>
+					<td>{{ user.nickName }}</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>{{ user.email }}</td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td>{{ user.description }}</td>
+				</tr>
+			</table>
+
+			<div class="endDiv">
+				<a href="#" onclick="document.getElementById('id01').style.display='block'">Supprimer mon profil</a>
+				<a href={{ path("app_rules_index")}}>⬅️ Retour</a>
+
+			</div>
+
+		</section>
+	</main>
 {% endblock %}
