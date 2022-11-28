@@ -1,0 +1,17 @@
+{{ form_start(form, {attr: {class: 'admin-form'}}) }}
+
+<div>
+	{{ form_label(form.email, 'Email') }}
+	{{ form_widget(form.email) }}
+	{{ form_errors(form.email) }}
+</div>
+
+<div>
+	{{ form_label(form.password, 'Mot de passe') }}
+	{{ form_widget(form.password) }}
+	{{ form_errors(form.password) }}
+</div>
+
+<button type="submit">Se connecter</button>
+
+{{ form_end(form) }}

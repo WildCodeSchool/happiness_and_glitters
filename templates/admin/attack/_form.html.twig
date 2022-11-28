@@ -1,0 +1,40 @@
+{{ form_start(form, {attr: {class: 'admin-form'}}) }}
+<div>
+	{{ form_label(form.name, "Nom") }}
+	{{ form_widget(form.name) }}
+	{{ form_errors(form.name) }}
+</div>
+
+<div>
+	{{ form_label(form.avatarFile, "Avatar") }}
+	{{ form_widget(form.avatarFile) }}
+	{{ form_errors(form.avatarFile) }}
+</div>
+
+<div>
+	{{ form_label(form.cost, "Coût") }}
+	{{ form_widget(form.cost) }}
+	{{ form_errors(form.cost) }}
+</div>
+
+<div>
+	{{ form_label(form.gain, "Gain") }}
+	{{ form_widget(form.gain) }}
+	{{ form_errors(form.gain) }}
+</div>
+
+<div>
+	{{ form_label(form.unicorns, "Licornes") }}
+	<div class="checkboxes-field">
+		{% for unicorn in unicorns %}
+			<div>
+				{{ form_widget(form.unicorns[unicorn.id]) }}
+				{{ form_label(form.unicorns[unicorn.id]) }}
+			</div>
+		{% endfor %}
+	</div>
+	{{ form_errors(form.unicorns) }}
+</div>
+
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}

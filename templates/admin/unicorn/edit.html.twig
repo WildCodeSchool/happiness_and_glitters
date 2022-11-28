@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    Editer une licorne
+{% endblock %}
+
+{% block admin_body %}
+    <h1>Editer une licorne</h1>
+
+    {{ include('admin/unicorn/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('app_admin_unicorn_index') }}">Retour</a>
+
+    {{ include('admin/unicorn/_delete_form.html.twig') }}
+{% endblock %}

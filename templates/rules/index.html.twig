@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Règles du jeu -
+{% block title %}
+	- Règles du jeu
+{% endblock %}
+
+{% block stylesheet %}
 	{{parent()}}
+
 {% endblock %}
 
 {% block content %}
@@ -76,7 +81,7 @@
 			</div>
 		{% else %}
 			<div class="rule-button">
-				<button class="redButton" data-modal="modalOne" style="button">Pas encore membre?</button>
+				<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
 			</div>
 
 			<div id="modalOne" class="modal {{ errors is defined and errors|length > 0 ? 'displayed' : '' }}">
@@ -93,6 +98,7 @@
 			<div id="modalTwo" class="modal">
 				<div class="modal-content">
 					<a class="close">&times;</a>
+
 					{% include 'rules/_login.html.twig' %}
 				</div>
 			</div>

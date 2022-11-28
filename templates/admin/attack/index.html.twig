@@ -1,0 +1,49 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Attaques
+{% endblock %}
+
+{% block admin_body %}
+	<h1>Attaques</h1>
+
+	<a href="{{ path('app_admin_attack_new') }}">Créer une attaque</a>
+
+	<table class="admin-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Avatar</th>
+				<th>Coût</th>
+				<th>Gain</th>
+				<th>Ratio de victoire</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for attack in attacks %}
+				<tr>
+					<td>{{ attack.id }}</td>
+					<td>{{ attack.name }}</td>
+					{% if attack.avatar is null %}
+						<td>Aucun</td>
+					{% else %}
+						<td><img src="{{ vich_uploader_asset(attack) }}" alt="Unicorn avatar"/></td>
+					{% endif %}
+					<td>{{ attack.cost }}</td>
+					<td>{{ attack.gain }}</td>
+					<td>{{ attack.successRate }}</td>
+					<td>
+						<a href="{{ path('app_admin_attack_show', {'id': attack.id}) }}">Infos</a>
+						<a href="{{ path('app_admin_attack_edit', {'id': attack.id}) }}">Editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

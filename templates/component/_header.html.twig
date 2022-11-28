@@ -22,10 +22,10 @@
 <aside class=" topnav responsivenav{{app.user is defined and app.user ? '':' notconnected' }}" id="mytopnav">
 
 	<ul>
-		<li><a class="headerLinks radiusButton"href="{{app.user.id is defined ? path('app_rules_index'): '#' }}">Règles</a></li>
+		<li><a class="headerLinks radiusButton"href="{{path('app_rules_index')}}">Règles</a></li>
 		<li><a class="headerLinks radiusButton"href="{{app.user.id is defined ? path('app_user_show', { 'id' : app.user.id } ): '#' }}">Mon profil</a></li>
 		<li><a class="headerLinks radiusButton"href="{{app.user.id is defined ? path('app_user_index'): '#' }}">Classement</a></li>
-		<li><a class="headerLinks radiusButton" href="/fight">Combat</a></li>
+		<li><a class="headerLinks radiusButton" href="#">Combat</a></li>
 		<li><a class="headerLinks radiusButton"href="{{ path('app_logout')}}">Logout</a></li>
 	</ul>
 </aside>

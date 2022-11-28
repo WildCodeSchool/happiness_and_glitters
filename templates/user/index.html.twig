@@ -13,7 +13,7 @@
 				<ul>
 					{% set rank = 1 %}
 					{% for user in users %}
-						{% if app.user is defined and app.user.id is same as(user.id) %}
+						{% if app.user.id is defined and app.user.id is same as(user.id) %}
 							<li>
 								<p>Rang
 									{{rank}}
