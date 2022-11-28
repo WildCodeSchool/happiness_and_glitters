@@ -32,6 +32,12 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('header', './assets/js/header.js')
+    .addEntry('form-modale', './assets/js/formModale.js')
+    .addEntry('card-flip', './assets/js/card-flip.js')
+    .addEntry('profile-pic', './assets/js/profilePic.js')
+
+
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

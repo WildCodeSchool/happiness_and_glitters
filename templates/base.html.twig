@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
 		<title>
-			{% block title %}Happiness and Glitters
-			{% endblock %}
+			Happiness and Glitters
+			{% block title %}{% endblock %}
 		</title>
 
 		{% block stylesheets %}
@@ -16,6 +16,8 @@
 
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
+			{{ encore_entry_script_tags('header') }}
+
 		{% endblock %}
 	</head>
 	<body>
@@ -28,10 +30,6 @@
 
 		{% block footer %}
 			{% include 'component/_footer.html.twig' %}
-		{% endblock %}
-
-		{% block javascript %}
-			<script src="/assets/js/header.js"></script>
 		{% endblock %}
 	</body>
 </html>

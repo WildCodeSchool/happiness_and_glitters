@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Règles du jeu -
-	{{parent()}}
+{% block title %}
+	- Règles du jeu
 {% endblock %}
+
+{% block javascript %}
+	{{ encore_entry_script_tags('form-modale') }}
+	{{ encore_entry_script_tags('profile-pic') }}
+	{{ encore_entry_script_tags('card-flip') }}
+{% endblock %}
+
 
 {% block content %}
 	<main>
@@ -70,11 +77,11 @@
 		</ul>
 
 		{#{% if sessionUser %}
-										<div class="rule-button">
-											<a href="/fight" class="redButton">Combat</a>
-										</div>
-									{% else %}
-										</div>#}
+																												<div class="rule-button">
+																													<a href="/fight" class="redButton">Combat</a>
+																												</div>
+																											{% else %}
+																												</div>#}
 		<div class="rule-button">
 			<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
 
@@ -98,12 +105,4 @@
 			{#{% endif %}#}
 		</main>
 
-	{% endblock %}
-
-
-	{% block javascript %}
-		{{parent()}}
-		<script type="application/javascript" src="/assets/js/formModale.js"></script>
-		<script type="application/javascript" src="/assets/js/profilePic.js"></script>
-		<script src="/assets/js/card-flip.js"></script>
 	{% endblock %}
