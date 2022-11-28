@@ -14,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RulesController extends AbstractController
 {
-
     /**
      * Display rules page
      */
