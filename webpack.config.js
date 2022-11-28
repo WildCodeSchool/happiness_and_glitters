@@ -67,17 +67,13 @@ Encore
     })
     // uncomment if you use TypeScript
     // .enableTypeScriptLoader()
-
     // uncomment if you use React
     // .enableReactPreset()
-
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     // .enableIntegrityHashes(Encore.isProduction())
-
     // uncomment if you're having problems with a jQuery plugin
     // .autoProvidejQuery()
-
     // enables Sass/SCSS support
     .enableSassLoader();
 const fullConfig = Encore.getWebpackConfig();
