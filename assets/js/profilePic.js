@@ -5,5 +5,5 @@ function showPreview(event)
         var imageHolder = document.getElementById("avatar-src");
         imageHolder.src = src;
     }
-  }
+}
 
