@@ -10,13 +10,12 @@
 	{{ encore_entry_script_tags('card-flip') }}
 {% endblock %}
 
-
 {% block content %}
 	<main>
-		<h1 class="rule-title">
-			Bienvenue
-			{#{{ sessionUser.nickName }}#}
+		<h1 class="rule-title">Bienvenue
+			{{ app.user is null ? "":app.user.nickname}}
 			dans Happiness & Glitters</h1>
+
 		<h2 class="rule-title">Comment jouer ? (et peut-être gagner)</h2>
 		<ul class="rules">
 			<li class="rule">
@@ -29,7 +28,7 @@
 					</p>
 				</div>
 				<div class="rule-image">
-					<img src="{{ asset('build/images/unicornVS.png') }}" alt="" class="unicornVS">
+					<<<<<<<HEAD<imgsrc="{{asset('build/images/unicornVS.png')}}"alt=""class="unicornVS">=======<imgsrc="{{asset('build/images/unicornVS.png')}}"alt=""class="unicornvs">>>>>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4
 				</div>
 			</li>
 			<li class="rule">
@@ -76,33 +75,29 @@
 			</li>
 		</ul>
 
+		<<<<<<<HEAD<divclass="rule-button"><buttonclass="redButton"data-modal="modalOne"style="button"onclick="">Pasencoremembre?</button><divid="modalOne"class="modal{#{{errors|length>0?'displayed':''}}">#}<divclass="modal-content"><aclass="close">&times;</a>=======<divclass="rule-button"><ahref="/fight"class="redButton">Combat</a></div><divclass="rule-button"><buttonclass="redButton"data-modal="modalOne"style="button"onclick="">Pasencoremembre?</button></div><divid="modalOne"class="modal{{errorsisdefinedanderrors|length>0?'displayed':''}}"><divclass="modal-content"><aclass="close">&times;</a>>>
 		{#{% if sessionUser %}
-																												<div class="rule-button">
-																													<a href="/fight" class="redButton">Combat</a>
-																												</div>
-																											{% else %}
-																												</div>#}
+																																<div class="rule-button">
+																																	<a href="/fight" class="redButton">Combat</a>
+																																</div>
+																															{% else %}
+																																</div>#}
+		{#{% include 'User/_addUserForm.html.twig' %}#}
+				{% if app.user is not null %}
+			{% else %}
+				{% include 'rules/_form.html.twig' %}>>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4</div>
+		</div>
 		<div class="rule-button">
-			<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
-
-			<div id="modalOne" class="modal {#{{ errors|length > 0 ? 'displayed' : '' }}">#}
-				<div class="modal-content">
-					<a class="close">&times;</a>
-					{#{% include 'User/_addUserForm.html.twig' %}#}
-				</div>
-			</div>
-
-			<div class="rule-button">
-				<button class="redButton" id="login-button" data-modal="modalTwo">J'ai déja un compte</button>
-			</div>
-
-			<div id="modalTwo" class="modal">
-				<div class="modal-content">
-					<a class="close">&times;</a>
-					{#{% include 'User/_login.html.twig' %}#}
-				</div>
-			</div>
-			{#{% endif %}#}
-		</main>
-
+			<button class="redButton" id="login-button" data-modal="modalTwo">J'ai déja un compte</button>
+		</div>
+		<div id="modalTwo" class="modal">
+			<div class="modal-content">
+				<a class="close">&times;</a>
+				<<<<<<<HEAD</div></div></main>=======</div></div></main>{{parent()}}>>>
+			{#{% include 'User/_login.html.twig' %}#}
+				{#{% endif %}#}
+			{% endblock %}
+			{% include 'rules/_login.html.twig' %}
+		{% endif %}
 	{% endblock %}
+	{% block javascripts %}{% endblock %}>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4

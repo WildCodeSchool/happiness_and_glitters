@@ -1,0 +1,18 @@
+<section class="formSection">
+	<h2>Inscris-toi</h2>
+
+	<div class="imageHolder" id="imageHolder">
+		<img src="\assets\images\profile\img_avatar.png" alt="Avatar" class="userPic" id="avatar-src">
+	</div>
+
+	{{ form_start(form, {'attr' : {'action' : path('app_newuser')}}) }}
+	<div class="show-errors">
+		{{ form_errors(form) }}
+	</div>
+	{{form_widget(form)}}
+	<div class="imageHolder">
+		<button class="redButton" type="submit">Je démarre l’aventure !</button>
+	</div>
+	{{ form_end(form) }}
+</section>
+<br>
