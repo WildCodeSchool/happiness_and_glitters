@@ -1,0 +1,154 @@
+section h1 {
+    background: var(--third-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+section .centerImg {
+    display: flex;
+    justify-content: center;
+}
+
+.centerImg img {
+    max-width: 250px;
+}
+
+table {
+    width: 50%;
+    table-layout: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.userPic {
+    border-radius: 50%;
+    max-width: 180px;
+    height: auto;
+    margin: 15px auto;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 14px;
+    border-bottom: solid 1px rgba(85, 85, 85, 0.041);
+}
+
+.top {
+    display: flex;
+    justify-content: space-around;
+    margin: auto 20%;
+    filter: var(--filter-shadow);
+    font-family: var(--primary-font);
+}
+
+.right-top {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    text-align: center;
+    margin: 1.5rem;
+    width: 30%;
+}
+
+.rank {
+    padding: 8px;
+    background-color: var(--secondary-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.points {
+    padding: 8px;
+    background-color: var(--secondary-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.bottomSection {
+    margin: 20px 20%;
+    background-color: var(--secondary-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    filter: var(--filter-shadow);
+    font-family: var(--primary-font);
+}
+
+.endDiv a {
+    justify-content: center;
+    margin: 10px auto;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.editPen {
+    font-size: 30px;
+    float: right;
+    margin: 0px auto;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.modal-content {
+    margin: 10px auto;
+    margin-top: 5rem;
+    border: none;
+    width: 60%;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+}
+
+hr {
+    border: 1px solid var(--secondary-color);
+    margin-bottom: 25px;
+}
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.close:hover,
+.close:focus {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.endDiv {
+    display: grid;
+}
+
+.detailsTitle {
+    font-family: var(--primary-font);
+    text-align: center;
+    font-size: 30px;
+}
+
+.deleteWarning {
+    font-family: var(--secondary-font);
+}

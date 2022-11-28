@@ -1,11 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 //start coding by removing this file and adding yours ;)
-@import "wcs";
+@import "index";
 @import "style";
-@import "rules";
-@import "userForm";
-@import "login";
-@import "header";
-@import "footer";
+@import "header.scss";
+@import "footer.scss";
+@import "ranking.scss";
+@import "rules.scss";
+@import "login.scss";
+@import "userForm.scss";
+@import "wcs";
 @import "rgpd";
 
 h2,
@@ -14,4 +22,18 @@ h3 {
     padding: 3px;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form div {
+    width : 60%;
+    margin-bottom : 2%;
+}
 
+form div input,
+form div textarea
+{
+    width: 100%;
+}

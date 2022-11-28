@@ -1,0 +1,28 @@
+{{ form_start(form, {attr: {class: 'admin-form'}}) }}
+<div>
+	{{ form_label(form.name, "Nom") }}
+	{{ form_widget(form.name) }}
+	{{ form_errors(form.name) }}
+</div>
+
+<div>
+	{{ form_label(form.avatarFile, "Avatar") }}
+	{{ form_widget(form.avatarFile) }}
+	{{ form_errors(form.avatarFile) }}
+</div>
+
+<div>
+	{{ form_label(form.attacks, "Attaques") }}
+	<div class="checkboxes-field">
+		{% for attack in attacks %}
+			<div>
+				{{ form_widget(form.attacks[attack.id]) }}
+				{{ form_label(form.attacks[attack.id]) }}
+			</div>
+		{% endfor %}
+	</div>
+	{{ form_errors(form.attacks) }}
+</div>
+
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}

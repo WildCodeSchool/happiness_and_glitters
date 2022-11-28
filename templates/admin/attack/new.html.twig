@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouvelle attaque{% endblock %}
+
+{% block admin_body %}
+    <h1>Créer une attaque</h1>
+
+    {{ include('admin/attack/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_attack_index') }}">Retour</a>
+{% endblock %}

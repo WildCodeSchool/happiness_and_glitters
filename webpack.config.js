@@ -36,7 +36,7 @@ Encore
     .addEntry('form-modale', './assets/js/formModale.js')
     .addEntry('card-flip', './assets/js/card-flip.js')
     .addEntry('profile-pic', './assets/js/profilePic.js')
-
+    .addEntry('admin', './assets/styles/admin.scss')
 
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+	{{ attack.name }}
+{% endblock %}
+
+{% block admin_body %}
+	<h1>{{ attack.name }}</h1>
+
+	<table class="admin-table">
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<td>{{ attack.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ attack.name }}</td>
+			</tr>
+			<tr>
+				<th>Avatar</th>
+				{% if attack.avatar is null %}
+					<td>Aucun</td>
+				{% else %}
+					<td><img src="{{ vich_uploader_asset(attack) }}" alt="Unicorn avatar"/></td>
+				{% endif %}
+			</tr>
+			<tr>
+				<th>Coût</th>
+				<td>{{ attack.cost }}</td>
+			</tr>
+			<tr>
+				<th>Gain</th>
+				<td>{{ attack.gain }}</td>
+			</tr>
+			<tr>
+				<th>Ratio de victoire</th>
+				<td>{{ attack.successRate }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_admin_attack_index') }}">Retour</a>
+
+	<a href="{{ path('app_admin_attack_edit', {'id': attack.id}) }}">Editer</a>
+
+	{{ include('admin/attack/_delete_form.html.twig') }}
+{% endblock %}

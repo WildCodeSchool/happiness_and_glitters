@@ -12,11 +12,11 @@
 
 
 {% block content %}
-	<main>
-		<h1 class="rule-title">
-			Bienvenue
-			{#{{ sessionUser.nickName }}#}
+		<main>
+		<h1 class="rule-title">Bienvenue
+			{{ app.user is null ? "":app.user.nickname}}
 			dans Happiness & Glitters</h1>
+
 		<h2 class="rule-title">Comment jouer ? (et peut-être gagner)</h2>
 		<ul class="rules">
 			<li class="rule">
@@ -29,7 +29,7 @@
 					</p>
 				</div>
 				<div class="rule-image">
-					<img src="{{ asset('build/images/unicornVS.png') }}" alt="" class="unicornVS">
+					<img src="{{ asset('build/images/unicornVS.png') }}" alt=" " class=" unicornvs">
 				</div>
 			</li>
 			<li class="rule">
@@ -76,19 +76,21 @@
 			</li>
 		</ul>
 
-		{#{% if sessionUser %}
-																												<div class="rule-button">
-																													<a href="/fight" class="redButton">Combat</a>
-																												</div>
-																											{% else %}
-																												</div>#}
-		<div class="rule-button">
-			<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
 
-			<div id="modalOne" class="modal {#{{ errors|length > 0 ? 'displayed' : '' }}">#}
+		{% if app.user is not null %}
+			<div class="rule-button">
+				<a href="/fight" class="redButton">Combat</a>
+
+			</div>
+		{% else %}
+			<div class="rule-button">
+				<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
+			</div>
+
+			<div id="modalOne" class="modal {{ errors is defined and errors|length > 0 ? 'displayed' : '' }}">
 				<div class="modal-content">
 					<a class="close">&times;</a>
-					{#{% include 'User/_addUserForm.html.twig' %}#}
+					{% include 'rules/_form.html.twig' %}
 				</div>
 			</div>
 
@@ -99,10 +101,13 @@
 			<div id="modalTwo" class="modal">
 				<div class="modal-content">
 					<a class="close">&times;</a>
-					{#{% include 'User/_login.html.twig' %}#}
+
+					{% include 'rules/_login.html.twig' %}
 				</div>
 			</div>
-			{#{% endif %}#}
-		</main>
+		{% endif %}
 
-	{% endblock %}
+
+	</main>
+{% endblock %}
+

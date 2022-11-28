@@ -1,0 +1,9 @@
+$adminBorderColor: rgba(219, 100, 100, 1);
+$adminBorderRadius: 0.25rem;
+$adminButtonsTransition: background-color linear 200ms;
+
+@import "admin/header";
+@import "admin/container";
+@import "admin/table";
+@import "admin/form";
+@import "admin/auth-container";

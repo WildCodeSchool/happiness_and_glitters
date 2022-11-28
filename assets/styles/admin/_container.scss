@@ -1,0 +1,41 @@
+.admin-container {
+    border: solid $adminBorderColor 1px;
+    border-radius: $adminBorderRadius;
+    color: black;
+    display: block;
+    height: calc(100vh - 5rem);
+    margin: 1rem;
+    overflow: auto;
+    scrollbar-color: $adminBorderColor transparent;
+    padding: 1rem;
+    width: initial;
+
+    a,
+    button {
+        background-color: white;
+        border: solid $adminBorderColor 1px;
+        border-radius: $adminBorderRadius;
+        color: black;
+        display: inline-block;
+        font-family: var(--primary-font);
+        font-size: 12pt;
+        margin: 0.25rem;
+        padding: 0.25rem;
+        text-decoration: 0;
+        transition: $adminButtonsTransition;
+
+        &:hover {
+            background-color: $adminBorderColor;
+            cursor: pointer;
+        }
+    }
+
+    h1 {
+        font-size: 3vw;
+        margin-bottom: 1rem;
+    }
+
+    form {
+        display: block;
+    }
+}
