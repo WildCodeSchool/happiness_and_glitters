@@ -7,12 +7,12 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-    // directory where compiled assets will be stored
+// directory where compiled assets will be stored
     .setOutputPath('public/build/')
-    // public path used by the web server to access the output path
+// public path used by the web server to access the output path
     .setPublicPath('/build')
-    // only needed for CDN's or sub-directory deploy
-    // .setManifestKeyPrefix('build/')
+// only needed for CDN's or sub-directory deploy
+// .setManifestKeyPrefix('build/')
     .copyFiles({
         from: './assets/images',
 
@@ -32,6 +32,10 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('header', './assets/js/header.js')
+    .addEntry('form-modale', './assets/js/formModale.js')
+    .addEntry('card-flip', './assets/js/card-flip.js')
+    .addEntry('profile-pic', './assets/js/profilePic.js')
     .addEntry('admin', './assets/styles/admin.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

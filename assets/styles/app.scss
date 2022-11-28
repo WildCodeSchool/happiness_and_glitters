@@ -13,6 +13,14 @@
 @import "rules.scss";
 @import "login.scss";
 @import "userForm.scss";
+@import "wcs";
+@import "rgpd";
+
+h2,
+h3 {
+    text-align: center;
+    padding: 3px;
+}
 
 form{
     display: flex;
