@@ -6,6 +6,14 @@
     font-family: var(--primary-font);
     font-size: 25px;
     font-weight: bold;
+
+    .userPic {
+        width: 40px;
+        height: 40px;
+        margin: 0px;
+        border-radius: 50%;
+        box-shadow: var(--shadow-buttons);
+    }
 }
 
 .topHeader a img {
@@ -40,14 +48,6 @@
     margin: 20px;
     font-size: 30px;
     text-align: center;
-}
-
-.imgavatar {
-    width: 40px;
-    height: 40px;
-    margin: 0px;
-    border-radius: 50%;
-    box-shadow: var(--shadow-buttons);
 }
 
 .icon {
