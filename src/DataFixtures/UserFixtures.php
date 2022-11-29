@@ -26,6 +26,13 @@ class UserFixtures extends Fixture
             $user->setScore($faker->numberBetween(1000, 15000));
             $user->setEmail($faker->email());
             $user->setPassword($this->hasher->hashPassword($user, "test"));
+
+            if (0 === $i) {
+                $user->setRoles([
+                    'ROLE_ADMIN',
+                ]);
+            }
+
             $manager->persist($user);
         }
 
