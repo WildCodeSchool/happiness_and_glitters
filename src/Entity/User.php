@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Seriali
         maxSize: '1M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     )]
-    private File $avatarFile;
+    private ?File $avatarFile = null;
 
     #[ORM\Column(type: 'datetime')]
     private ?DateTimeInterface $updatedAt = null;
