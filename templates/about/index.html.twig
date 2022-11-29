@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	- A propos
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/about.css">
+{% endblock %}
+
+{% block content %}
+	<main class="about">
+		<h1>A propos</h1>
+		<section class="dev">
+			<ul>
+				<li>
+					<p>Tyler Durnion</p>
+					<img src="{{ asset('build/images/tyler.jpg') }}" alt="tyler" class="picture">
+					<div>
+						<a target="_blank" href="https://www.linkedin.com/in/tylerdurnion/">
+							<img class="social" src="{{ asset('build/images/linkedin.svg') }}"></a>
+						<a target="_blank" href="https://github.com/td6904">
+							<img class="social" src="{{ asset('build/images/github.svg') }}"></a>
+					</div>
+				</li>
+				<li>
+					<p>Ali Serhani</p>
+					<img src="{{ asset('build/images/ali.jpeg') }}" alt="ali" class="picture">
+					<div>
+						<a target="_blank" href="https://www.linkedin.com/in/ali-serhani-6744a6251/">
+							<img class="social" src="{{ asset('build/images/linkedin.svg') }}"></a>
+						<a target="_blank" href="https://github.com/serhanif59">
+							<img class="social" src="{{ asset('build/images/github.svg') }}"></a>
+					</li>
+				</li>
+				<li>
+					<p>Paul Vinchent</p>
+					<img src="{{ asset('build/images/paul.jpeg') }}" alt="paul" class="picture">
+					<div>
+						<a target="_blank" href="https://www.linkedin.com/in/paulvinchent/">
+							<img class="social" src="{{ asset('build/images/linkedin.svg') }}"></a>
+						<a target="_blank" href="https://github.com/cruiser22">
+							<img class="social" src="{{ asset('build/images/github.svg') }}"></a>
+					</div>
+				</li>
+				<li>
+					<p>Nicolas Benoit</p>
+					<img src="{{ asset('build/images/nicolas.jpg') }}" alt="nico" class="picture">
+					<div>
+						<a target="_blank" href="https://www.linkedin.com/in/nicolas-benoit-59390/">
+							<img class="social" src="{{ asset('build/images/linkedin.svg') }}"></a>
+						<a target="_blank" href="https://github.com/ikolan">
+							<img class="social" src="{{ asset('build/images/github.svg') }}"></a>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</main>
+{% endblock %}
