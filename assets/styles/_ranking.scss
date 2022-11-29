@@ -1,4 +1,4 @@
-main {
+.ranking-main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -35,7 +35,7 @@ main {
     max-width: 800px;
 }
 
-h1 {
+.ranking-font {
     font-size: 8vw;
 }
 
