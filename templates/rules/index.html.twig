@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Règles du jeu -
-	{{parent()}}
+{% block title %}
+	- Règles du jeu
 {% endblock %}
 
 {% block stylesheet %}
@@ -98,6 +98,7 @@
 			<div id="modalTwo" class="modal">
 				<div class="modal-content">
 					<a class="close">&times;</a>
+
 					{% include 'rules/_login.html.twig' %}
 				</div>
 			</div>
@@ -105,8 +106,4 @@
 
 
 	</main>
-{% endblock %}
-
-{% block javascripts %}
-	{{parent()}}
 {% endblock %}

@@ -13,6 +13,14 @@
 @import "rules.scss";
 @import "login.scss";
 @import "userForm.scss";
+@import "show.scss";
+@import "rgpd";
+
+h2,
+h3 {
+    text-align: center;
+    padding: 3px;
+}
 
 form {
     display: flex;
@@ -20,8 +28,8 @@ form {
     align-items: center;
 }
 form div {
-    width: 60%;
-    margin-bottom: 2%;
+    width : 90%;
+    margin-bottom : 2%;
 }
 
 form div input,

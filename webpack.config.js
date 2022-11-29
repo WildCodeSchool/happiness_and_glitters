@@ -1,26 +1,26 @@
-const Encore = require('@symfony/webpack-encore');
+const Encore = require("@symfony/webpack-encore");
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
-    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
+    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || "dev");
 }
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    .setOutputPath("public/build/")
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    .setPublicPath("/build")
     // only needed for CDN's or sub-directory deploy
     // .setManifestKeyPrefix('build/')
     .copyFiles({
-        from: './assets/images',
+        from: "./assets/images",
 
         // optional target path, relative to the output dir
         // to: 'images/[path][name].[ext]',
 
         // if versioning is enabled, add the file hash too
-        to: 'images/[path][name].[hash:8].[ext]',
+        to: "images/[path][name].[hash:8].[ext]",
 
         // only copy files matching this pattern
         // pattern: /\.(png|jpg|jpeg)$/
@@ -31,12 +31,12 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/app.js')
-    .addEntry('admin', './assets/styles/admin.scss')
+    .addEntry("app", "./assets/app.js")
+    .addEntry("header", "./assets/js/header.js")
+    .addEntry("admin", "./assets/styles/admin.scss")
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
-
+    .enableStimulusBridge("./assets/controllers.json")
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
@@ -58,38 +58,36 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     .configureBabel((config) => {
-        config.plugins.push('@babel/plugin-proposal-class-properties');
+        config.plugins.push("@babel/plugin-proposal-class-properties");
     })
 
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
-        config.useBuiltIns = 'usage';
+        config.useBuiltIns = "usage";
         config.corejs = 3;
     })
     // uncomment if you use TypeScript
     // .enableTypeScriptLoader()
-
-// uncomment if you use React
-// .enableReactPreset()
-
-// uncomment to get integrity="..." attributes on your script & link tags
-// requires WebpackEncoreBundle 1.4 or higher
-// .enableIntegrityHashes(Encore.isProduction())
-
-// uncomment if you're having problems with a jQuery plugin
-// .autoProvidejQuery()
-
+    // uncomment if you use React
+    // .enableReactPreset()
+    // uncomment to get integrity="..." attributes on your script & link tags
+    // requires WebpackEncoreBundle 1.4 or higher
+    // .enableIntegrityHashes(Encore.isProduction())
+    // uncomment if you're having problems with a jQuery plugin
+    // .autoProvidejQuery()
     // enables Sass/SCSS support
     .enableSassLoader();
 const fullConfig = Encore.getWebpackConfig();
 fullConfig.devServer = {
     headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods":
+            "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers":
+            "X-Requested-With, content-type, Authorization",
     },
     watchFiles: {
-        paths: ['templates/**/*.html.twig']
-    }
+        paths: ["templates/**/*.html.twig"],
+    },
 };
 module.exports = fullConfig;

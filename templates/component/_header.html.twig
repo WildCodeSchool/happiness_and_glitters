@@ -6,12 +6,14 @@
 	<a class="headerLinks headerTitle" href="/">Happiness & Glitters
 	</a>
 
-	{% if app.user is defined and app.user %}
-		<a href={{app.user ? "/users/show?id=" ~ app.user.id : "#"}}><img class='imgavatar' alt={{app.user.nickname}} src={{"/assets/images/profile/" ~ app.user.avatar }}></a>
+	{% if app.user.id is defined %}
+		<a href={{app.user.id ? "/users/show?id=" ~ app.user.id : "#"}}>
+			<img class='imgavatar' alt={{app.user.nickname}} src="{{ vich_uploader_asset(app.user) }}">
+		</a>
 	{% endif %}
 
 
-	<button type="button" class="icon{{app.user is defined and app.user ? '':' notconnected' }}" onclick="displayMenu()" id="burger">
+	<button type="button" class="icon{{app.user is defined ? '':' notconnected' }}" id="burger">
 		<i class="fa-solid fa-bars"></i>
 	</button>
 
@@ -20,10 +22,14 @@
 <aside class=" topnav responsivenav{{app.user is defined and app.user ? '':' notconnected' }}" id="mytopnav">
 
 	<ul>
-		<li><a class="headerLinks radiusButton" href="/rules">Règles</a></li>
-		<li><a class="headerLinks radiusButton"href={{app.user.id is defined ? path("app_user_show",{'id' : app.user.id} ) : "#" }}>Mon profil</a></li>
-		<li><a class="headerLinks radiusButton" href="/users">Classement</a></li>
-		<li><a class="headerLinks radiusButton" href="/fight">Combat</a></li>
+		<li><a class="headerLinks radiusButton"href="{{path('app_rules_index')}}">Règles</a></li>
+		<li><a class="headerLinks radiusButton"href="{{app.user.id is defined ? path('app_user_show', { 'id' : app.user.id } ): '#' }}">Mon profil</a></li>
+		<li><a class="headerLinks radiusButton"href="{{app.user.id is defined ? path('app_user_index'): '#' }}">Classement</a></li>
+		<li><a class="headerLinks radiusButton" href="#">Combat</a></li>
 		<li><a class="headerLinks radiusButton"href="{{ path('app_logout')}}">Logout</a></li>
 	</ul>
 </aside>
+
+{% block javascripts %}
+	<script src="{{ asset('build/js/header.js') }}"></script>
+{% endblock %}

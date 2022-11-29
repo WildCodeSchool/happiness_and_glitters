@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Edit Profile -
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<main>
+		<div class="modal-content">
+			{% include 'User/_editUserForm.html.twig' %}
+		</div>
+	</main>
+
+{% endblock %}
