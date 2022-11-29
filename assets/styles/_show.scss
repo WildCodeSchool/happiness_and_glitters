@@ -19,6 +19,10 @@ section .centerImg {
     justify-content: center;
     text-align: center;
     margin: auto;
+
+    td {
+        font-size: 2vw;
+    }
 }
 
 .userPic {
@@ -88,6 +92,7 @@ td {
     margin: 10px auto;
     color: inherit;
     text-decoration: inherit;
+    font-size: 2vw;
 }
 
 .editPen {
@@ -146,7 +151,7 @@ hr {
 .detailsTitle {
     font-family: var(--primary-font);
     text-align: center;
-    font-size: 30px;
+    font-size: 3vw;
 }
 
 .deleteWarning {
