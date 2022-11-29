@@ -1,3 +1,5 @@
+{% from "component/_user_avatar.html.twig" import user_avatar %}
+
 <header class="topHeader">
 	<a href="/">
 		<img class="unicornLogo" src="{{ asset('build/images/logo4.png') }}">
@@ -8,7 +10,8 @@
 
 	{% if app.user.id is defined %}
 		<a href={{app.user.id ? "/users/show?id=" ~ app.user.id : "#"}}>
-			<img class='imgavatar' alt={{app.user.nickname}} src="{{ vich_uploader_asset(app.user) }}">
+            {{ user_avatar(app.user) }}
+			{#<img class='imgavatar' alt={{app.user.nickname}} src="{{ vich_uploader_asset(app.user) }}">#}
 		</a>
 	{% endif %}
 
