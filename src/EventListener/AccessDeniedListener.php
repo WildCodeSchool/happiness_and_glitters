@@ -28,9 +28,10 @@ final class AccessDeniedListener
         $firewall = $this->firewallMap->getFirewallConfig($event->getRequest());
 
         if ('admin' === $firewall->getName() && $exception instanceof AccessDeniedHttpException) {
-            $event->setResponse(new RedirectResponse($this->router->generate('app_admin_logout', [
+            $response = new RedirectResponse($this->router->generate('app_admin_logout', [
                 'access_denied' => true
-            ])));
+            ]));
+            $event->setResponse($response);
         }
     }
 }
