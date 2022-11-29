@@ -4,10 +4,9 @@
 	- Règles du jeu
 {% endblock %}
 
-{% block javascript %}
-	{{ encore_entry_script_tags('form-modale') }}
-	{{ encore_entry_script_tags('profile-pic') }}
-	{{ encore_entry_script_tags('card-flip') }}
+{% block stylesheet %}
+	{{parent()}}
+
 {% endblock %}
 
 {% block content %}
@@ -28,10 +27,7 @@
 					</p>
 				</div>
 				<div class="rule-image">
-					<<<<<<<HEAD<<<<<<<HEAD<imgsrc="{{asset('build/images/unicornVS.png')}}"alt=""class="unicornVS">=======<imgsrc="{{asset('build/images/unicornVS.png')}}"alt=""class="unicornvs">>>>>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4
-					=======
 					<img src="{{ asset('build/images/unicornVS.png') }}" alt=" " class=" unicornvs">
-					>>>>>>> 18c75c3e7eae15fb4cd3ca9592767987176ee3be
 				</div>
 			</li>
 			<li class="rule">
@@ -78,63 +74,36 @@
 			</li>
 		</ul>
 
-		<<<<<<<HEAD<<<<<<<HEAD<divclass="rule-button"><buttonclass="redButton"data-modal="modalOne"style="button"onclick="">Pasencoremembre?</button><divid="modalOne"class="modal{#{{errors|length>0?'displayed':''}}">#}<divclass="modal-content"><aclass="close">&times;</a>=======<divclass="rule-button"><ahref="/fight"class="redButton">Combat</a></div><divclass="rule-button"><buttonclass="redButton"data-modal="modalOne"style="button"onclick="">Pasencoremembre?</button></div><divid="modalOne"class="modal{{errorsisdefinedanderrors|length>0?'displayed':''}}"><divclass="modal-content"><aclass="close">&times;</a>>>
-		{#{% if sessionUser %}
-																																		<div class="rule-button">
-																																			<a href="/fight" class="redButton">Combat</a>
-																																		</div>
-																																	{% else %}
-																																		</div>#}
-		{#{% include 'User/_addUserForm.html.twig' %}#}
-				{% if app.user is not null %}
-			{% else %}
-				{% include 'rules/_form.html.twig' %}>>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4</div>
-		</div>
-		<div class="rule-button">
-			<button class="redButton" id="login-button" data-modal="modalTwo">J'ai déja un compte</button>
-		</div>
-		<div id="modalTwo" class="modal">
-			<div class="modal-content">
-				<a class="close">&times;</a>
-				<<<<<<<HEAD</div></div></main>=======</div></div></main>{{parent()}}>>>
-			{#{% include 'User/_login.html.twig' %}#}
-				{#{% endif %}#}
-			{% endblock %}
-			{% include 'rules/_login.html.twig' %}
+		{% if app.user is not null %}
+			<div class="rule-button">
+				<a href="/fight" class="redButton">Combat</a>
+
+			</div>
+		{% else %}
+			<div class="rule-button">
+				<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
+			</div>
+
+			<div id="modalOne" class="modal {{ errors is defined and errors|length > 0 ? 'displayed' : '' }}">
+				<div class="modal-content">
+					<a class="close">&times;</a>
+					{% include 'rules/_form.html.twig' %}
+				</div>
+			</div>
+
+			<div class="rule-button">
+				<button class="redButton" id="login-button" data-modal="modalTwo">J'ai déja un compte</button>
+			</div>
+
+			<div id="modalTwo" class="modal">
+				<div class="modal-content">
+					<a class="close">&times;</a>
+
+					{% include 'rules/_login.html.twig' %}
+				</div>
+			</div>
 		{% endif %}
-	{% endblock %}
-	{% block javascripts %}{% endblock %}>>>> 410bd9683f92a2c2db8089531b7bc5bc07c022d4
-		=======
-
-	{% if app.user is not null %}
-		<div class="rule-button">
-			<a href="/fight" class="redButton">Combat</a>
-
-		</div>
-	{% else %}
-		<div class="rule-button">
-			<button class="redButton" data-modal="modalOne" style="button" onclick="">Pas encore membre?</button>
-		</div>
-
-		<div id="modalOne" class="modal {{ errors is defined and errors|length > 0 ? 'displayed' : '' }}">
-			<div class="modal-content">
-				<a class="close">&times;</a>
-				{% include 'rules/_form.html.twig' %}
-			</div>
-		</div>
-
-		<div class="rule-button">
-			<button class="redButton" id="login-button" data-modal="modalTwo">J'ai déja un compte</button>
-		</div>
-
-		<div id="modalTwo" class="modal">
-			<div class="modal-content">
-				<a class="close">&times;</a>
-
-				{% include 'rules/_login.html.twig' %}
-			</div>
-		</div>
-	{% endif %}
 
 
-</main>{% endblock %}>>>>>>> 18c75c3e7eae15fb4cd3ca9592767987176ee3be
+	</main>
+{% endblock %}

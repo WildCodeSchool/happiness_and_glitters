@@ -3,15 +3,22 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Serializable;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+#[Assert\EnableAutoMapping()]
+#[Vich\Uploadable]
+class User implements UserInterface, PasswordAuthenticatedUserInterface, Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    private ?string $password = null;
+    private string $password = '';
 
     #[ORM\Column(length: 45)]
     private ?string $firstname = null;
@@ -45,11 +52,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true, options: ["default" => "avatar.png"])]
     private ?string $avatar = null;
 
+    #[Vich\UploadableField(mapping: 'avatar', fileNameProperty: 'avatar')]
+    #[Assert\File(
+        maxSize: '1M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
+    private File $avatarFile;
+
+    #[ORM\Column(type: 'datetime')]
+    private ?DateTimeInterface $updatedAt = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column(nullable: true, options: ["default" => 1000])]
     private ?int $score = null;
+
+    public function setAvatarFile(File $image = null): self
+    {
+        $this->avatarFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime();
+        }
+        return $this;
+    }
+
+
+    public function getAvatarFile(): ?File
+    {
+        return $this->avatarFile;
+    }
 
     public function getId(): ?int
     {
@@ -191,5 +223,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->score = $score;
 
         return $this;
+    }
+
+    public function serialize()
+    {
+
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+
+        list(
+            $this->id,
+            $this->email,
+            $this->password,
+        ) = unserialize($serialized);
     }
 }

@@ -13,7 +13,7 @@
 @import "rules.scss";
 @import "login.scss";
 @import "userForm.scss";
-@import "wcs";
+@import "show.scss";
 @import "rgpd";
 
 h2,
@@ -28,7 +28,7 @@ form{
     align-items: center;
 }
 form div {
-    width : 60%;
+    width : 90%;
     margin-bottom : 2%;
 }
 

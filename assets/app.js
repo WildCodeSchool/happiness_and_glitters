@@ -13,7 +13,6 @@ import "./bootstrap";
 import "./js/card-flip";
 import "./js/confirmModale";
 import "./js/formModale";
-import "./js/header";
 import "./js/profilePic";
 import "./js/select-unicorn";
 import "./js/selectOpponent";

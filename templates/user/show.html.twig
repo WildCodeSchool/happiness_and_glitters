@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Personal Profil -
-	{{ parent() }}
+	- Personal Profile
 {% endblock %}
-
 
 {% block content %}
 	<main>
@@ -12,18 +10,19 @@
 			<div class="modal-content">
 				<section class="formSection" style="width: 85%;">
 					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-					{# <section class="formSection formSectionModale"> #}
 
 					<h2 class="deleteWarning">Tu es sûr de vouloir nous quitter
 						{{user.nickName}}?</h2>
 					<div class="centerImg">
-						<img src="/assets/images/crying-unicorn.png"/>
+						<img src="{{ asset('build/images/crying-unicorn.png') }}"/>
 					</div>
-
-					<div class="modalButtons">
-						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelButton">Cancel</button><br>
-						<button onclick="location.href='delete?id={{ user.id }}'" type="button" class="redButton">Delete account</button>
-					</div>
+					<form action="{{ path('app_user_delete', {'id': user.id} ) }}" method="post">
+						<div class="modalButtons">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+							<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelButton">Abandon</button><br>
+							<button type="submit" formaction="{{ path('app_user_delete', {'id': user.id}) }}" class="redButton">Supprimer Mon Compte</button>
+						</div>
+					</form>
 				</section>
 			</div>
 		</aside>
@@ -31,7 +30,7 @@
 		<section class="top">
 
 			<div class="left-top">
-				<img src="/assets/images/profile/{{ user.avatar }}" alt="Avatar" class="userPic">
+				<img src="{{ vich_uploader_asset(user) }}" alt="Avatar" class="userPic">
 			</div>
 
 			<div class="right-top">
@@ -45,10 +44,10 @@
 		<section class="bottomSection">
 
 			<h1 class="detailsTitle">Mes infos
-				<a href="/users/edit?id={{ user.id }}" class="editPen">✏️</a>
+				<a href={{ path( "app_user_edit", { 'id' : user.id } ) }} class="editPen">✏️</a>
 			</h1>
 
-			<table>
+			<table class="tableShow">
 				<tr>
 					<td>Prenom</td>
 					<td>{{ user.firstName }}</td>
@@ -73,13 +72,10 @@
 
 			<div class="endDiv">
 				<a href="#" onclick="document.getElementById('id01').style.display='block'">Supprimer mon profil</a>
-				<a href="/users">⬅️ Retour</a>
+				<a href={{ path("app_rules_index")}}>⬅️ Retour</a>
+
 			</div>
 
 		</section>
 	</main>
-{% endblock %}
-{% block javascript %}
-	{{parent()}}
-	<script type="application/javascript" src="/assets/js/confirmModale.js"></script>
 {% endblock %}

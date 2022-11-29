@@ -1,17 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User-
-	{{ parent() }}
-{% endblock %}
-
-{% block stylesheet %}
-	{{ parent() }}
-	<link rel="stylesheet" href="/assets/css/show.css">
-	<link rel="stylesheet" href="/assets/css/userForm.css">
-{% endblock %}
-{% block javascript %}
-	{{parent()}}
-	<script type="application/javascript" src="/assets/js/profilePic.js"></script>
+{% block title %}
+	- Edit User
 {% endblock %}
 
 
@@ -19,16 +9,10 @@
 	{% block content %}
 		<main>
 			<div class="modal-content">
-				{% include 'User/_editUserForm.html.twig' %}
+				{% include 'user/_editUserForm.html.twig' %}
 			</div>
 		</main>
 
 	{% endblock %}
 
-
-	{{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
-
-	<a href="{{ path('app_user_index') }}">back to list</a>
-
-	{{ include('user/_delete_form.html.twig') }}
 {% endblock %}

@@ -49,7 +49,11 @@ main.homePages .redButton {
     font-size: 20px;
     font-family: var(--secondary-font);
     color: var(--secondary-color);
-    background: linear-gradient(to bottom, var(--primary-color) 5%, var(--primary-hover) 100%);
+    background: linear-gradient(
+        to bottom,
+        var(--primary-color) 5%,
+        var(--primary-hover) 100%
+    );
     padding: 15px 30px;
     margin: 0;
     border-radius: 20px;
@@ -60,9 +64,12 @@ main.homePages .redButton {
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
-
 main.homePages .redButton:hover {
-    background: linear-gradient(to bottom, var(--primary-hover) 5%, var(--primary-color) 100%);
+    background: linear-gradient(
+        to bottom,
+        var(--primary-hover) 5%,
+        var(--primary-color) 100%
+    );
 }
 
 main.homePages .bottomSection {
@@ -70,7 +77,6 @@ main.homePages .bottomSection {
 }
 
 @media screen and (max-width: 780px) {
-
     main.homePages .imgMedium {
         width: 35%;
     }
