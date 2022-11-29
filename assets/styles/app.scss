@@ -22,7 +22,7 @@ h3 {
     padding: 3px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,11 @@ form div {
 }
 
 form div input,
-form div textarea
-{
+form div textarea {
     width: 100%;
+}
+
+.error {
+    color: red;
+    font-weight: 600;
 }
