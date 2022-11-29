@@ -11,7 +11,6 @@
 	{% if app.user.id is defined %}
 		<a href={{app.user.id ? "/users/show?id=" ~ app.user.id : "#"}}>
             {{ user_avatar(app.user) }}
-			{#<img class='imgavatar' alt={{app.user.nickname}} src="{{ vich_uploader_asset(app.user) }}">#}
 		</a>
 	{% endif %}
 
