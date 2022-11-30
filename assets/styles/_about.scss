@@ -1,8 +1,9 @@
 main.about h1 {
-    text-align: center;
-    color: var(--primary-color);
-    text-shadow: 1px 1px 1px red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--primary-font);
+    -webkit-text-stroke: 0.5px rgb(121, 10, 77);
 }
 
 section.dev {
