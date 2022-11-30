@@ -1,5 +1,11 @@
 {{ form_start(form, {attr: {class: 'admin-form'}}) }}
 
+{% if error is not null or access_denied %}
+	<div>
+		<p class="error">Identifiants invalides.</p>
+	</div>
+{% endif %}
+
 <div>
 	{{ form_label(form.email, 'Email') }}
 	{{ form_widget(form.email) }}

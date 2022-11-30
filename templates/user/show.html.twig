@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% from "component/_user_avatar.html.twig" import user_avatar %}
+
 {% block title %}
 	- Personal Profile
 {% endblock %}
@@ -35,12 +37,12 @@
 		<section class="top">
 
 			<div class="left-top">
-				<img src="{{ vich_uploader_asset(user) }}" alt="Avatar" class="userPic">
+                {{ user_avatar(user) }}
 			</div>
 
 			<div class="right-top">
 				<h2>Ton Score</h2>
-				<div class="points">{{ user.score }}
+				<div class="points">{{ user.score ?? 0 }}
 					Points</div>
 			</div>
 

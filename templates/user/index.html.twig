@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% from "component/_user_avatar.html.twig" import user_avatar %}
+
 {% block title %}User index -
 	{{parent()}}
 {% endblock %}
@@ -10,8 +12,8 @@
 
 
 {% block content %}
-	<main>
-		<h1>Classement</h1>
+	<main class="ranking-main">
+		<h1 class="ranking-font">Classement</h1>
 		<section class="info">
 			<div class="info-session">
 				<h2>Tes infos</h2>
@@ -38,12 +40,7 @@
 				{% for user in users|slice(0,3) %}
 					<div class="ranking">
 						<figcaption>{{user.nickName}}</figcaption>
-						{% if user.avatar is not defined or user.avatar == ('') %}
-							<img class='userPic' src="{{ asset('build/images/img_avatar.png')}}" alt="{{user.nickName}}"/>
-						{% else %}
-							<img class='userPic' src="{{ asset(vich_uploader_asset(user))}}" alt="{{user.nickName}}"/>
-
-						{% endif %}
+						{{ user_avatar(user) }}
 						<div class=" podium-{{loop.index}} ">
 							<div class="podium-score">{{user.score}}</div>
 							<img class="podium-img" src="{{ asset('build/images/podium2.png')}}"/>
@@ -62,11 +59,7 @@
 			{% set rank = 1 %}
 			{% for user in users %}
 				<tr>
-					{% if (user.avatar is not defined) or (user.avatar == ('')) %}
-						<td><img class='userPic' src="{{ asset('build/images/img_avatar.png')}}"/></td>
-					{% else %}
-						<td><img class='userPic' src="{{ asset(vich_uploader_asset(user))}}"/></td>
-					{% endif %}
+                    <td>{{ user_avatar(user) }}</td>
 					<td>{{rank}}</td>
 					<td class="left-justify">{{user.nickName}}</td>
 					<td class="right-justify">{{user.score}}</td>

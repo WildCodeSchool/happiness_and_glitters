@@ -1,0 +1,7 @@
+{% macro user_avatar(user) %}
+	{% if user.avatar is not defined or user.avatar == ('') %}
+		<img class='userPic' src="{{ asset('build/images/img_avatar.png')}}" alt="{{user.nickName}} avatar"/>
+	{% else %}
+		<img class='userPic' src="{{ asset(vich_uploader_asset(user))}}" alt="{{user.nickName}} avatar"/>
+	{% endif %}
+{% endmacro %}

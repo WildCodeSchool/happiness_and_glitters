@@ -65,4 +65,20 @@
             }
         }
     }
+
+    .vich-file div {
+        display:flex;
+        flex-flow: row-reverse nowrap;
+        justify-content: flex-end;
+
+        input,
+        label {
+            display: inline;
+            width: initial;
+        }
+
+        input {
+            margin-right: 0.6rem;
+        }
+    }
 }
