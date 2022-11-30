@@ -6,8 +6,12 @@
 
 {% block stylesheet %}
 	{{parent()}}
-
 {% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('card-flip') }}
+	{{ encore_entry_script_tags('formModale') }}
+{% endblock %}
+
 
 {% block content %}
 	<main>
@@ -76,8 +80,7 @@
 
 		{% if app.user is not null %}
 			<div class="rule-button">
-				<a href="/fight" class="redButton">Combat</a>
-
+				<a href="{{ path('app_fight_indexUsers',{ 'id' : -1 }) }}" class="redButton">Combat</a>
 			</div>
 		{% else %}
 			<div class="rule-button">

@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Fight-
+	{{parent()}}
+{% endblock %}
+
+{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/versus.css">
+	<link rel="stylesheet" href="/assets/css/fight.css">
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('selectOpponent') }}
+{% endblock %}
+
+
+{% block content %}
+	<main class="fight">
+		<section>
+			{% include 'Components/_versus.html.twig' %}
+		</section>
+
+	</main>
+{% endblock %}

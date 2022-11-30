@@ -33,6 +33,12 @@ Encore
      */
     .addEntry("app", "./assets/app.js")
     .addEntry("header", "./assets/js/header.js")
+    .addEntry("card-flip", "./assets/js/card-flip.js")
+    .addEntry("confirmModale", "./assets/js/confirmModale.js")
+    .addEntry("formModale", "./assets/js/formModale.js")
+    .addEntry("profilePic", "./assets/js/profilePic.js")
+    .addEntry("select-unicorn", "./assets/js/select-unicorn.js")
+    .addEntry("selectOpponent", "./assets/js/selectOpponent.js")
     .addEntry("admin", "./assets/styles/admin.scss")
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FightPage -
+	{{parent()}}
+{% endblock %}
+
+{% block content %}
+	<main class="fight">
+		{% set opponent = app.session.get('opponent') %}
+		{% set userScore = app.session.get('userScore') %}
+		{% set opponentScore = app.session.get('opponentScore') %}
+		{% set round = app.session.get('round') %}
+		<section class="battle">
+			<div>
+				<img class="player" src="{{ asset('images/' ~ (app.user.avatar ? app.user.avatar: 'img_avatar.png'))}}">
+				<h3>Score
+					{{userScore}}</h3>
+			</div>
+			<img class="versus" src="{{ asset('build/images/vs-index.png') }}">
+
+
+			<div>
+				<img class="player" src="{{ asset('images/' ~ (opponent.avatar ? opponent.avatar : 'img_avatar.png')) }}">
+				<h3>Score
+					{{opponentScore}}</h3>
+			</div>
+		</section>
+
+		<section class="round">
+			<h1>
+				Round
+				{{round}}
+			</h1>
+		</section>
+
+		<div class="tableau">
+			<div class="containerTableau">
+
+				<section>
+
+					<div class="titleTableau">
+						capacités</div>
+
+					<div class="capacity">
+
+						<div>Nom</div>
+						<div>Côut</div>
+						<div>Gain</div>
+						<div>Chance</div>
+
+					</div>
+
+					<div>
+						{% for attack in attacks %}
+							<ol>
+								<li>
+									{{attack.name}}
+								</li>
+								<li>
+									{{attack.cost}}
+								</li>
+								<li>
+									{{attack.gain}}
+								</li>
+								<li>
+									{{attack.successRate}}
+								</li>
+							</ol>
+						{%  endfor %}
+					</div>
+				</section>
+			</div>
+
+		</div>
+
+		<section class="round">
+			<h2>
+				utilise l'une des capacités de ta licorne !</h2>
+		</section>
+
+		<section class="containerRedButton">
+			{% for attack in attacks %}
+				<div>
+					<a href="confirmAttack?id={{attack.id}}" class="selectAttack">{{attack.name}}
+					</a>
+				</div>
+			{%  endfor %}
+		</section>
+
+	</main>
+{% endblock %}
