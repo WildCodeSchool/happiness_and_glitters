@@ -22,6 +22,7 @@ class FightManager
         if ($success) {
             $score += $attack->getGain();
         }
+
         $session->set('successRound', $success);
         $session->set('userScore', $score);
         return $score > 0 && $score < self::MAX_SCORE;

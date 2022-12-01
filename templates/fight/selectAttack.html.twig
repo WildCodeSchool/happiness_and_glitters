@@ -10,6 +10,7 @@
 		{% set userScore = app.session.get('userScore') %}
 		{% set opponentScore = app.session.get('opponentScore') %}
 		{% set round = app.session.get('round') %}
+		{% set userUnicorn = app.session.get('userUnicorn') %}
 		<section class="battle">
 			<div>
 				<img class="player" src="{{ asset('images/' ~ (app.user.avatar ? app.user.avatar: 'img_avatar.png'))}}">
@@ -81,7 +82,7 @@
 		<section class="containerRedButton">
 			{% for attack in attacks %}
 				<div>
-					<a href="confirmAttack?id={{attack.id}}" class="selectAttack">{{attack.name}}
+					<a href="{{ path('app_fight_attackConfirm', {'id' : attack.id }) }}" class="selectAttack">{{attack.name}}
 					</a>
 				</div>
 			{%  endfor %}

@@ -11,14 +11,14 @@
 		</div>
 
 		<div class="sectionVS">
-			{% if app.user.avatar is defined and app.user.avatar is same as("") %}
-				<img src="{{ asset('build/images/' ~ app.user.avatar) }}" class="picture_avatar" alt="{{app.user.nickname}}">
+			{% if app.user.avatar is defined and app.user.avatar is not same as(null) %}
+				<img src="{{ asset('images/' ~ app.user.avatar) }}" class="picture_avatar" alt="{{app.user.nickname}}">
 			{% else %}
 				<img src="{{ asset('build/images/img_avatar.png')}}" class="picture_avatar" alt="Avatar">
 			{% endif %}
 			<img src="{{ asset('build/images/vs-index.png')}}" class="vs_pic" alt="vs picture">
-			{% if opponent.avatar is defined and opponent.avatar is same as("") %}
-				<img src="{{ asset('build/images/' ~ opponent.avatar) }}" class="picture_avatar" alt="avatar opponent">
+			{% if opponent.avatar is defined and opponent.avatar is not same as(null) %}
+				<img src="{{ asset('images/' ~ opponent.avatar) }}" class="picture_avatar" alt="avatar opponent">
 			{% else %}
 				<img src="{{ asset('build/images/img_avatar.png')}}" class="picture_avatar" alt="Avatar">
 			{% endif %}
@@ -33,7 +33,7 @@
 			</tr>
 			{% for user in users %}
 				<tr id="rowSelected">
-					<td><img src="{{ asset('build/images/' ~ user.avatar) }}" alt="avatar"></td>
+					<td><img src="{{ asset('images/' ~ user.avatar) }}" alt="avatar"></td>
 
 					<td class="right-justify">{{user.nickname}}</td>
 					<td class="right-justify">{{user.score}}</td>

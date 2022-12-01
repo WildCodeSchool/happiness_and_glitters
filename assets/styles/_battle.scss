@@ -28,6 +28,7 @@ main.fight section.battle .versus {
 }
 
 main.fight section.battle .player {
+    border-radius: 50%;
     object-fit: scale-down;
     height: 200px;
 }

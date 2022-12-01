@@ -23,7 +23,7 @@ class RoundController extends AbstractController
             $continue = $fightManager->buildRoundOpponent();
             if ($continue) {
                 $session->set('round', $session->get('round') + 1);
-                return $this->redirectToRoute('app_fight_attack');
+                return $this->redirectToRoute('app_fight_round');
             }
         }
 

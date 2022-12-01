@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Entity\Unicorn;
 use App\Entity\Attack;
-use App\Repository\AttackRepository;
 use App\Repository\UnicornRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,6 +20,7 @@ class FightController extends AbstractController
     {
         $session = $requestStack->getSession();
         $userUni = $session->get('userUnicorn');
+        $userUni = $unicornRepository->findOneBy(['id' => $userUni->getId()]);
         $userAttacks = $userUni->getAttacks();
         $session->set('round', 1);
         $session->set('userScore', 100);
@@ -30,10 +29,11 @@ class FightController extends AbstractController
     }
 
     #[Route('/round/', name: 'round')]
-    public function loopInRound(RequestStack $requestStack): Response
+    public function loopInRound(RequestStack $requestStack, UnicornRepository $unicornRepository): Response
     {
         $session = $requestStack->getSession();
-        $userUni = $session->get("userUnicornId");
+        $userUni = $session->get("userUnicorn");
+        $userUni = $unicornRepository->findOneBy(['id' => $userUni->getId()]);
         $attacks = $userUni->getAttacks();
         return $this->render('fight/selectAttack.html.twig', ['attacks' => $attacks]);
     }
@@ -47,6 +47,7 @@ class FightController extends AbstractController
         $session = $requestStack->getSession();
         $session->set('userAttack', $userAttack);
         $oppoUni = $session->get('userUnicorn');
+        $oppoUni = $unicornRepository->findOneBy(['id' => $oppoUni->getId()]);
         $attacks = $oppoUni->getAttacks();
         $count = count($attacks);
         $rnd = rand(0, $count - 1);
