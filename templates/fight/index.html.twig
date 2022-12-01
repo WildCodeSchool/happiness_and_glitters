@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% from "component/_user_avatar.html.twig" import user_avatar %}
+
 {% block title %}Combat -
 	{{ parent() }}
 {% endblock %}
@@ -11,17 +13,9 @@
 		</div>
 
 		<div class="sectionVS">
-			{% if app.user.avatar is defined and app.user.avatar is not same as(null) %}
-				<img src="{{ asset('images/' ~ app.user.avatar) }}" class="picture_avatar" alt="{{app.user.nickname}}">
-			{% else %}
-				<img src="{{ asset('build/images/img_avatar.png')}}" class="picture_avatar" alt="Avatar">
-			{% endif %}
+			{{ user_avatar(app.user) }}
 			<img src="{{ asset('build/images/vs-index.png')}}" class="vs_pic" alt="vs picture">
-			{% if opponent.avatar is defined and opponent.avatar is not same as(null) %}
-				<img src="{{ asset('images/' ~ opponent.avatar) }}" class="picture_avatar" alt="avatar opponent">
-			{% else %}
-				<img src="{{ asset('build/images/img_avatar.png')}}" class="picture_avatar" alt="Avatar">
-			{% endif %}
+			{{ user_avatar(opponent)}}
 		</div>
 
 		<table>
@@ -33,8 +27,7 @@
 			</tr>
 			{% for user in users %}
 				<tr id="rowSelected">
-					<td><img src="{{ asset('images/' ~ user.avatar) }}" alt="avatar"></td>
-
+					<td>{{ user_avatar(app.user) }}</td>
 					<td class="right-justify">{{user.nickname}}</td>
 					<td class="right-justify">{{user.score}}</td>
 					<td>
@@ -44,7 +37,6 @@
 			{% endfor %}
 		</table>
 		<form action="{{ opponent.id ? path('app_fight_confirmOpponent',{ 'id' : opponent.id }) :'' }}" method="post">
-
 			<input type="hidden" name="opponentId" value="{{opponent.id}}"/>
 			<button type="submit" class="goFight" style="button">
 				Lancer le combat !

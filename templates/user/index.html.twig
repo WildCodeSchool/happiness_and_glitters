@@ -15,7 +15,7 @@
 	<main class="ranking-main">
 		<h1 class="ranking-font">Classement</h1>
 		<section class="info">
-			<div class="info-session">
+			<div class="info-session-ranking">
 				<h2>Tes infos</h2>
 				<ul>
 					{% set rank = 1 %}
@@ -59,7 +59,7 @@
 			{% set rank = 1 %}
 			{% for user in users %}
 				<tr>
-                    <td>{{ user_avatar(user) }}</td>
+					<td>{{ user_avatar(user) }}</td>
 					<td>{{rank}}</td>
 					<td class="left-justify">{{user.nickName}}</td>
 					<td class="right-justify">{{user.score}}</td>
