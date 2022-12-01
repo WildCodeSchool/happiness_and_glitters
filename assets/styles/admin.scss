@@ -1,6 +1,7 @@
 $adminBorderColor: rgba(219, 100, 100, 1);
 $adminBorderRadius: 0.25rem;
 $adminButtonsTransition: background-color linear 200ms;
+$primaryFont: "Mali", sans-serif;
 
 @import "admin/header";
 @import "admin/container";
