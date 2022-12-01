@@ -71,11 +71,14 @@ class FightController extends AbstractController
     }
 
     #[Route('/confirm/{id}', name: 'confirmOpponent', methods: ['Post'])]
-    public function confirmOpponent(User $user, RequestStack $requestStack): Response
+    public function confirmOpponent(User $user, RequestStack $requestStack, UserRepository $userRepository): Response
     {
         if ($user != null) {
+            $user = $userRepository->findOneBy(['id' => $user->getId()]);
+            $avat = $user->getAvatar();
             $session = $requestStack->getSession();
             $session->set('opponent', $user);
+            $session->set('opponentAvatar', $avat);
             return $this->redirectToRoute('app_unicorn_index');
         }
         return $this->redirectToRoute('app_fight_indexUsers');

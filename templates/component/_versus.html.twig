@@ -1,15 +1,15 @@
 {% block content %}
 	{% from "component/_user_avatar.html.twig" import user_avatar %}
 
-	{% set opponent = app.session.get('opponent') %}
+	{% set opponentAvatar = app.session.get('opponentAvatar') %}
 
 	<div class="versus">
 		{{ user_avatar(app.user) }}
-
 		<div class="versus-image">
 			<img src="{{ asset('build/images/versus.png')}}" alt="Versus" class="userPic">
 		</div>
-		{{ user_avatar(opponent) }}
+		<img src="{{ asset('images/' ~ opponentAvatar)}}" alt="" class="userPic">
+
 
 	</div>
 {% endblock %}

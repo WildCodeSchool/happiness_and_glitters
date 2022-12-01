@@ -7,6 +7,7 @@
 {% block content %}
 	<main class="fight">
 		{% set opponent = app.session.get('opponent') %}
+		{% set opponentAvatar = app.session.get('opponentAvatar') %}
 		{% set userScore = app.session.get('userScore') %}
 		{% set opponentScore = app.session.get('opponentScore') %}
 		{% set round = app.session.get('round') %}
@@ -21,7 +22,7 @@
 
 
 			<div>
-				<img class="player" src="{{ asset('images/' ~ (opponent.avatar ? opponent.avatar : 'img_avatar.png')) }}">
+				<img class="player" src="{{ asset('images/' ~ (opponentAvatar is not null ? opponentAvatar : 'img_avatar.png')) }}">
 				<h3>Score
 					{{opponentScore}}</h3>
 			</div>
