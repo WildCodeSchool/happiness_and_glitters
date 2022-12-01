@@ -11,6 +11,7 @@ unicorns.forEach((unicorn) => {
                 unicorn.classList.toggle("opacity-low");
             }
         });
+        SelectedByOpponent();
     });
 });
 
@@ -20,15 +21,14 @@ function changeSelected(unicornId) {
 
 // Selection by the opponent
 
-const SelectedByOpponent = () => {
+function SelectedByOpponent() {
     let selectOpponent = document.getElementById("opponentUnicorn");
-    if (Math.random() * 10 < 3.3) {
+    const rnd = Math.random() * 10;
+    if (rnd < 3.3) {
         selectOpponent.value = 1;
-    } else if (Math.random() * 10 > 3.3 && Math.random() * 10 < 6.7) {
+    } else if (rnd > 3.3 && rnd < 6.7) {
         selectOpponent.value = 2;
     } else {
         selectOpponent.value = 3;
     }
-};
-
-SelectedByOpponent();
+}

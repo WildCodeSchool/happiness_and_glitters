@@ -10,9 +10,3 @@ import "./styles/app.scss";
 
 // start the Stimulus application
 import "./bootstrap";
-import "./js/card-flip";
-import "./js/confirmModale";
-import "./js/formModale";
-import "./js/profilePic";
-import "./js/select-unicorn";
-import "./js/selectOpponent";

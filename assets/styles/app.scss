@@ -5,8 +5,8 @@
 }
 
 //start coding by removing this file and adding yours ;)
-@import "index";
-@import "style";
+@import "index.scss";
+@import "style.scss";
 @import "header.scss";
 @import "footer.scss";
 @import "ranking.scss";
@@ -14,8 +14,11 @@
 @import "login.scss";
 @import "userForm.scss";
 @import "show.scss";
-@import "rgpd";
-@import "about";
+@import "rgpd.scss";
+@import "fight.scss";
+@import "battle.scss";
+@import "unicorn.scss";
+@import "about.scss";
 
 
 h2,

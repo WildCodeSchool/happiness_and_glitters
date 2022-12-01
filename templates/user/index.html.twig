@@ -5,6 +5,11 @@
 {% block title %}User index -
 	{{parent()}}
 {% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('confirmModale') }}
+	{{ encore_entry_script_tags('formModale') }}
+{% endblock %}
+
 
 {% block content %}
 	<main class="ranking-main">

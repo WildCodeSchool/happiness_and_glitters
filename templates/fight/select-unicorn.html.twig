@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sélect Unicorn -
+	{{parent()}}
+{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('select-unicorn') }}
+{% endblock %}
+
+{% block content %}
+	<main>
+		<h1 class="unicorn-title">
+			Sélectionne ta licorne,
+			{{ app.user.nickname }}
+		</h1>
+		<h2 class="unicorn-title">N'oublie pas que tu ne peux choisir qu'une seule licorne, alors réfléchis bien !</h2>
+
+		{% include 'component/_versus.html.twig' %}
+
+		<ul class="unicorns">
+			{% for uni in unicorns %}
+				<li class="unicorn" id="{{ uni.id }}">
+					<div class="unicorn-name">
+						<h3>{{ uni.name }}</h3>
+					</div>
+					<div class="unicorn-image">
+						<img src="{{ asset('build/images/' ~ uni.name|lower ~ '.png') }}" alt="">
+					</div>
+					<div class="unicorn-skills">
+						<h4>Capacités</h4>
+					</div>
+					<div class="unicorn-table">
+						<table>
+							<tr>
+								<th>Nom</th>
+								<th>Coût</th>
+								<th>Gain</th>
+								<th>Chance</th>
+							</tr>
+							{% for attack in uni.attacks %}
+								<tr>
+									<td>{{ attack.name }}</td>
+									<td>{{ attack.cost }}</td>
+									<td>{{ attack.gain }}</td>
+									<td>{{ attack.successRate }}%</td>
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+		<div>
+			<form class="selectUnicornForm" method="post" action="{{ path('app_unicorn_select') }}">
+				<select class="select-hidden" name="userUnicorn" id="userUnicorn" required>
+					<option hidden disabled selected value></option>
+					{% for uni in unicorns %}
+						<option value="{{uni.id}}">{{uni.name}}</option>
+					{% endfor %}
+				</select>
+				<input value="1" type="hidden" id="opponentUnicorn" name="opponentUnicorn"/>
+				<button class="redButton" type="submit">J'ai choisi ma licorne !</button>
+			</form>
+		</div>
+	</main>
+{% endblock %}

@@ -21,7 +21,7 @@ class UserController extends AbstractController
     #[Route('/', name: 'index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
-        $users = $userRepository->findAll();
+        $users = $userRepository->findBy([], ['score' => 'desc']);
         return $this->render('user/index.html.twig', [
             'users' => $users,
         ]);
