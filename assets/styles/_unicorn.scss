@@ -15,7 +15,8 @@
 .unicorn {
     display: flex;
     flex-direction: column;
-    width: 285px;
+    align-items: center;
+    width: 30%;
     background: linear-gradient(
         180deg,
         var(--third-color) 16%,
@@ -49,9 +50,11 @@
 .unicorn-table {
     text-align: center;
     align-self: center;
+    align-content: center;
 }
 
 .unicorn-table table {
+    width : auto;
     border-spacing: 5px;
 }
 

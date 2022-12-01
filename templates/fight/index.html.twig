@@ -27,7 +27,7 @@
 			</tr>
 			{% for user in users %}
 				<tr id="rowSelected">
-					<td>{{ user_avatar(app.user) }}</td>
+					<td>{{ user_avatar(user) }}</td>
 					<td class="right-justify">{{user.nickname}}</td>
 					<td class="right-justify">{{user.score}}</td>
 					<td>
