@@ -54,7 +54,7 @@ section.info {
     width: 100%;
 }
 
-.info-session {
+.info-session-ranking {
     color: var(--primary-color);
     font-size: 3vw;
     background-color: var(--third-color);
@@ -64,9 +64,12 @@ section.info {
     border-color: whitesmoke;
 }
 
-.info-session ul {
+.info-session-ranking ul {
     position: relative;
-    left: 30%;
+    left: 10%;
+}
+.info-session-ranking ul li{
+    list-style-type: none;
 }
 
 .podium {

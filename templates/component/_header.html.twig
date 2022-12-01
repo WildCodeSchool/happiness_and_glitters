@@ -9,8 +9,8 @@
 	</a>
 
 	{% if app.user.id is defined %}
-		<a href={{app.user.id ? "/users/show?id=" ~ app.user.id : "#"}}>
-            {{ user_avatar(app.user) }}
+		<a href={{app.user.id ? "/user/show?id=" ~ app.user.id : "#"}}>
+			{{ user_avatar(app.user) }}
 		</a>
 	{% endif %}
 
