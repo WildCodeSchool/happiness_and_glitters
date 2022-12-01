@@ -49,7 +49,7 @@ class UnicornRepository extends ServiceEntityRepository
         $unicorns = array();
         for ($i = 0; count($unicorns) < 3; $i++) {
             $unicorn = $result[rand(0, $count - 1)];
-            if ($unicorn->getId()) {
+            if ($unicorn->getId() != $id && !in_array($unicorn, $unicorns)) {
                 $unicorns[] = $unicorn;
             }
         }
